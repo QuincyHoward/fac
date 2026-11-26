@@ -27,6 +27,7 @@
 | `fac-demo-troubleshooting` | 构建失败、运行崩溃、比对失败、无基准、长耗时、单位或列语义异常 | `skills/fac-demo-troubleshooting/SKILL.md` |
 | `fac-code-navigation` | 查找物理功能实现、API 调用链、模块职责、PFAC/SFAC 接口映射 | `skills/fac-code-navigation/SKILL.md` |
 | `fac-readme-maintainer` | 自底向上维护 README、核查公式、添加源码未命中下划线注记 | `skills/fac-readme-maintainer/SKILL.md` |
+| `fac-hpc-parallel` | 超算并行执行 FAC、USE_MPI、核数/MPI 矩阵、并行提交与资源汇总 | `skills/fac-hpc-parallel/SKILL.md` |
 
 触发多条时按“先环境/构建，再工作流，再排障，再源码定位，再文档维护”的顺序处理；不要让排障 skill 直接覆盖工作流判断。
 

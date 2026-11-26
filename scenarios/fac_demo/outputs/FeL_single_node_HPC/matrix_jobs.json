@@ -1,5 +1,12 @@
 {
   "scene": "FeL_single_node",
+  "walltime": "03:00:00",
+  "baseline": {
+    "cores": 40,
+    "mpi": 40,
+    "job_id": "4973989",
+    "source": "scenarios/fac_demo/outputs/FeL_single_node_HPC/summary.json"
+  },
   "dry_run": false,
   "jobs": [
     {

@@ -77,4 +77,10 @@ def submit_matrix(
                     "walltime": walltime,
                 }
             )
-    return {"scene": scene.name, "dry_run": dry_run, "jobs": rows}
+    return {
+        "scene": scene.name,
+        "walltime": walltime,
+        "baseline": config.get("baseline", {}),
+        "dry_run": dry_run,
+        "jobs": rows,
+    }

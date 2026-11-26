@@ -51,90 +51,108 @@ todos:
       - add-launchers-docs
 ---
 
-## User Requirements
-- 将 FAC 部署到已确认的 NC-E 超算账户 `scfa2696`，目标位置按 `~/{用户名}/fac/fac` 语义解析，默认使用 NC-E 的 `remote_home` 下的 `fac/fac`，并允许执行时覆盖目标路径。
-- 在 `scenarios/run/` 中建立类似 FLASH `flash_run` 的仿真运行接口，支持本地、WSL、超算远程、超算就地等执行目标；场景层只声明物理与策略，执行层统一负责 SSH、SLURM、作业目录、提交、轮询和产物回传。
-- 在 `scenarios/fac_demo/cases/` 中新增 FeL 单节点满核测试场景，不修改原始 `demo/FeL/` 脚本；通过适配副本注入满核并行设置，完成一次真实 NC-E 超算单节点满核 FeL 测试。
-- 新增 `PhySimX_fac_CHANGELOG.md`，记录近期工程化改造、部署与验证结果，不修改原有 `ChangeLog`。
-- 全程不打印、不复制真实密码或令牌；敏感信息从 `~/.physimx/specx` 的加密凭证读取。
+## 用户要求
+在 `scenarios/fac_demo/cases/FeL_single_node/` 中建立完整、自包含的 FeL 后处理体系：选择一个已完成的 HPC FeL 作业，回传其全部产物到本地子场景目录，编写 Python3 绘图脚本，生成全套 FeL 图像，并编写 `FeL仿真报告.html`。
 
-## Product Overview
-形成一套可复用的 FAC 仿真执行层与 HPC 提交机制，并完成一次可追溯的 FeL 单节点满核超算验证；同时新增独立变更日志，便于后续 Agent 与用户查看工程化演进。
+## 产品概述
+形成以 FeL 子场景为中心的“数据、脚本、图像、报告”一体目录。报告展示 FeL 光谱、电离平衡/丰度、速率系数、跃迁速率，以及核数/MPI 参数矩阵耗时对比；所有相关文件均位于该子场景目录内。
 
-## Tech Stack Selection
-- 执行层：Python 3 标准库为主，SSH/SFTP 使用 `paramiko` 作为开发依赖。
-- 超算作业：SLURM，使用 `sbatch` 提交、`squeue`/`sacct` 轮询、`scancel` 取消。
-- 凭证：复用 `scripts/credentials/` 与 `~/.physimx/specx/credentials.enc`，账户基础信息读取 `hpc_accounts.json` 中的 `flash_ssh`。
-- 场景体系：沿用现有 `scenarios/common/`、`scenarios/core/`、`scenarios/fac_demo/cases/` 结构，新增 `scenarios/run/` 执行层。
-- 文档：Markdown、相对链接、中文说明；公式沿用现有 LaTeX 规则。
+## 核心功能
+- 从推荐作业 `(24 核, 16 MPI)`、JobID `4974613` 回传完整 FeL 产物。
+- 在子场景目录中新增 Python3 绘图脚本，不使用旧 Python2 的 `cPickle/Numeric/biggles` 方案。
+- 绘制全套 FeL 图：谱线光谱、多温度谱、电离平衡/丰度、速率系数、跃迁速率、矩阵耗时对比。
+- 生成自包含静态 HTML 报告 `FeL仿真报告.html`，使用相对路径引用图片。
+- 更新子场景 README、场景元数据和变更记录，确保目录可复现、可审计。
 
-## Implementation Approach
-采用“接口分层 → 场景接入 → HPC 部署 → 真实提交 → 变更记录”的流程。关键决策：
 
-1. `scenarios/run/` 只提供通用执行机制，不写 FeL 专属常量；FeL 专属配置放在 `scenarios/fac_demo/cases/FeL_single_node/`。
-2. HPC 目标默认按远程 `HOME` 解析，NC-E 使用 `flash_ssh` 的 `remote_home`，同时提供 `--target` 覆盖能力，避免硬编码用户目录。
-3. FeL 产物巨大，作业目录采用 home 存脚本与日志、scratch 存大数据；默认只回传状态、日志摘要、关键小表，不回传 20 GB 级 `Fe08/` 全量产物。
-4. 单节点满核通过远程自动探测核心数，作业使用 `--nodes=1 --ntasks-per-node=N`，FeL 适配副本中注入 `fac.InitializeMPI(N)`。
-5. SSH/SFTP 操作串行化；`sbatch` 超时必须回查队列，防止重复提交。
+## 技术栈选择
+- 回传层：复用 `scenarios/run/remote/session.py` 与 `scripts/credentials`；避免硬编码用户名，不打印敏感信息。
+- 数据读取：Python3 标准库 `pathlib`、`json`、`pickle`、`csv`，配合 `numpy` 处理表格与曲线。
+- 绘图：Python3 + `matplotlib`，输出 PNG/PDF 到子场景 `figures/`。
+- 报告：单文件静态 HTML + 内嵌 CSS，图片使用相对路径。
+- 文档门禁：复用 `scripts/04_audit/audit_readmes.py`、`audit_formula_underlines.py` 与场景审计。
 
-## Performance and Reliability
-- 远程大文件传输只做一次目录上传，避免逐文件往返。
-- 产物回传使用白名单策略，避免拉取 `data/` 与 `Fe08/` 大目录。
-- 作业轮询间隔固定且可配置，失败状态立即终止。
-- 完整产物校验在 HPC 本地完成，本地只保留可验证摘要。
+## 实现思路
+采用“先回传完整产物，再本地解析绘图，最后生成 HTML 报告”的链路。回传阶段优先在 HPC 端打包 `work/run` 为单个归档，再经 SFTP 下载并解包到本地子场景目录，避免逐文件传输大量小文件造成高延迟。绘图脚本不调用 FAC 运行时，直接读取 ASCII 表、`.plt`、`.sav`、`.dat` 与矩阵 JSON。
 
-## Architecture Design
-```text
-scenarios/
-├── fac_demo/cases/FeL_single_node   # 场景声明、FeL 适配、验证
-├── run/                             # 执行契约与 CLI
-│   ├── execution.py                 # 目标解析与 run_scene
-│   ├── hpc.py                       # HPC 统一入口
-│   ├── remote/                      # SSH、SLURM、作业渲染、回传
-│   └── env/                         # 路径、资源、目标路径解析
-└── core/                            # 场景发现、清单、锚点
+关键决策：
+- 选用 JobID `4974613`，因为矩阵结果确认 `(24,16)` 为推荐组合，且产物一致性通过。
+- 所有脚本、回传产物、图片和报告都放入 `scenarios/fac_demo/cases/FeL_single_node/`，不再向 `scenarios/fac_demo/outputs/` 生成第二套资料。
+- 原始 HPC 产物体积大，默认不纳入 Git 跟踪；仅对报告所需图片增加窄范围例外，保证报告可展示。
+- 旧 FeL 绘图脚本使用 Python2、biggles 和 Numeric，不能直接复用；新脚本只参考其物理含义与文件读取逻辑。
+- `.sav` 文件使用 `pickle.load(..., encoding="latin1")` 兼容旧格式；缺失输入必须明确报错并列出缺失文件，不猜测数据。
 
-scripts/credentials/                 # 只读凭证与账户解析
-scripts/10_deploy/                   # WSL 与 HPC 部署经验
+## 性能与可靠性
+- 回传前统计 HPC `work/run` 大小与本地可用空间；大文件打包传输，避免逐个 SFTP 往返。
+- 生成 manifest：记录相对路径、文件大小、修改时间、关键文件数量；回传后校验。
+- 绘图脚本对大表采用流式读取或按列读取，避免一次性加载不必要数据。
+- 矩阵耗时图读取已回传的小 JSON，不重新提交或等待 HPC 作业。
+- HTML 生成前检查所有图片路径存在；缺失图片时报告生成失败。
+
+## 架构设计
+```mermaid
+flowchart LR
+    A["HPC Job 4974613<br/>work/run 完整产物"] --> B["fetch_fel_artifacts.py<br/>打包与 SFTP 回传"]
+    B --> C["FeL_single_node/artifacts/<br/>本地原始数据"]
+    C --> D["plot_spec.py"]
+    C --> E["plot_abund.py"]
+    C --> F["plot_rates.py"]
+    C --> G["plot_trates.py"]
+    H["matrix_summary.json"] --> I["plot_matrix.py"]
+    D --> J["figures/"]
+    E --> J
+    F --> J
+    G --> J
+    I --> J
+    J --> K["FeL仿真报告.html"]
 ```
 
-## Directory Structure
-- `scenarios/run/README.md`：新增，说明四目标模型、分层铁律、HPC 流程和经验。
-- `scenarios/run/__init__.py`：新增，惰性导出核心 API。
-- `scenarios/run/execution.py`：新增，统一执行契约、目标解析、策略校验。
-- `scenarios/run/hpc.py`：新增，提交、状态、等待、取消、下载、节点探测 CLI。
-- `scenarios/run/remote/session.py`：新增，唯一 SSH/SFTP 入口，从凭证读取密码。
-- `scenarios/run/remote/slurm.py`：新增，唯一 SLURM 操作封装。
-- `scenarios/run/remote/job.py`：新增，stage/build/run/verify/archive 作业脚本渲染与提交。
-- `scenarios/run/remote/layout.py`：新增，home 与 scratch 目录布局、资源规格。
-- `scenarios/run/remote/fetch.py`：新增，产物白名单回传与摘要生成。
-- `scenarios/run/env/paths.py`：新增，解析远程 HOME、用户名和目标路径。
-- `scenarios/run/env/resources.py`：新增，单节点满核探测与资源策略。
-- `scenarios/fac_demo/cases/FeL_single_node/README.md`：新增，FeL 场景说明与运行方式。
-- `scenarios/fac_demo/cases/FeL_single_node/scene.json`：新增，场景元数据与执行策略。
-- `scenarios/fac_demo/cases/FeL_single_node/run.py`：新增，场景入口，调用 `scenarios/run`。
-- `scenarios/fac_demo/cases/FeL_single_node/prepare_fel.py`：新增，从 `demo/FeL/` 生成适配副本并注入核心数。
-- `scenarios/fac_demo/cases/FeL_single_node/verify_fel.py`：新增，检查退出码、关键文件、产物数量与物理合理性摘要。
-- `scenarios/fac_demo/scene_manifest.json`：修改，注册 FeL 单节点场景。
-- `scenarios/_scene_anchors.json`：修改，增加 HPC 运行目录、FeL 场景与脚本锚点。
-- `scripts/10_deploy/README.md`：修改，补充 NC-E 部署经验与事故规避。
-- `requirements-dev.txt`：修改，新增 `paramiko`。
-- `PhySimX_fac_CHANGELOG.md`：新增，记录工程化、部署与 FeL 测试结果。
-- `scripts/README.md`、`scenarios/README.md`、`AGENTS.md`：修改，补充新入口与分层约定。
+## 目录结构
+```text
+scenarios/fac_demo/cases/FeL_single_node/
+├── README.md                         # [MODIFY] 补充回传、绘图、报告复现命令与文件索引
+├── scene.json                        # [MODIFY] 增加 plots/report/artifacts 元数据
+├── matrix.json                       # [KEEP] 参数矩阵配置保持不变
+├── hpc_jobs/                         # [KEEP] 已有作业清单与日志
+├── artifacts/
+│   ├── README.md                     # [NEW] 说明回传作业、目录结构与数据用途
+│   └── FeL_single_node_c24m16/       # [NEW] Job 4974613 全量产物本地副本
+├── plots/
+│   ├── README.md                     # [NEW] 绘图脚本使用说明
+│   ├── common.py                     # [NEW] 路径解析、文件发现、安全 pickle、样式配置
+│   ├── fetch_fel_artifacts.py        # [NEW] 从 HPC 回传 Job 4974613 完整产物
+│   ├── plot_spec.py                  # [NEW] 绘制光谱与多温度谱图
+│   ├── plot_abund.py                 # [NEW] 绘制电离平衡与丰度比图
+│   ├── plot_rates.py                 # [NEW] 绘制 CE/CI/RR/AI 等速率系数图
+│   ├── plot_trates.py                # [NEW] 绘制跃迁速率相关图
+│   ├── plot_matrix.py                # [NEW] 绘制核数/MPI 矩阵耗时对比图
+│   └── plot_all.py                   # [NEW] 统一调用绘图脚本并生成图片清单
+├── figures/
+│   ├── README.md                     # [NEW] 图片索引与命名规则
+│   └── *.png / *.pdf                 # [NEW] 自动生成的 FeL 全套图像
+└── FeL仿真报告.html                   # [NEW] 自包含静态报告，相对引用 figures 图片
+```
 
-## Key Code Structures
-- `ExecutionTarget`：字符串枚举，包含 `local`、`wsl`、`hpc-remote`、`hpc-insitu`。
-- `ExecutionPolicy`：声明允许目标、核数约束、失败原因。
-- `JobRequest`：包含场景名、远程目录、scratch 目录、核数、命令模板、回传白名单。
-- `RemoteSession`：提供 `run`、`upload`、`download`、`exists`、`mkdir_p`。
+## 关键执行细节
+- `fetch_fel_artifacts.py` 默认从 `matrix_jobs.json` 解析 `(24,16)` 作业，并允许 `--job` 覆盖。
+- 绘图脚本统一提供 `--artifacts-dir`、`--figures-dir`、`--help`。
+- `plot_all.py` 汇总各脚本执行状态，输出 `figures/figure_manifest.json`。
+- HTML 报告包含：数据来源、参数组合、矩阵结论、图像分区、物理合理性、产物统计、复现命令、已知限制。
+- 更新 `.gitignore`：继续忽略原始大产物和日志；仅允许该子场景 `figures/*.png` 作为报告图片入库。
+
+
+## FeL 报告视觉方案
+采用现代科研报告风格：深蓝头部区域、浅色内容背景、卡片化图组、清晰表格与响应式网格。报告不依赖外部 CDN，CSS 内嵌，离线打开即可查看。
+
+页面结构：
+1. 顶部标题区：FeL 仿真报告、作业参数、推荐组合标识。
+2. 摘要卡片区：JobID、核数/MPI、耗时、产物计数。
+3. 图像分区：光谱、丰度、速率、跃迁速率、矩阵分析，每张图含图题与简要说明。
+4. 结果表：矩阵组合、耗时、状态、产物一致性。
+5. 复现与限制区：命令清单、数据路径、非致命警告说明。
 
 ## Agent Extensions
 ### SubAgent
 - **code-explorer**
-  - Purpose: 复核 FLASH `flash_run`、FAC `scenarios/` 与 `demo/FeL/` 的落点和现有约定。
-  - Expected outcome: 输出精确文件清单、接口边界和 FeL 场景适配点。
-
-### Skill
-- **lsp-code-analysis**
-  - Purpose: 分析现有 `scenarios/core/` 与新增执行层的 API 依赖关系，确认无反向依赖。
-  - Expected outcome: 得到场景层与执行层的符号引用清单，避免把 HPC 机制错误塞入场景层。
+  - Purpose: 复核 FeL 原始 Python2 绘图脚本、当前子场景目录、矩阵结果文件与回传作业产物字段。
+  - Expected outcome: 明确每类图表的输入文件、旧脚本物理含义、README 门禁影响和最小改动落点。

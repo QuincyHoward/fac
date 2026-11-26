@@ -17,6 +17,7 @@
 | [`fac-demo-troubleshooting`](fac-demo-troubleshooting/SKILL.md) | 构建、运行、比对、崩溃、长耗时与单位问题排障 |
 | [`fac-code-navigation`](fac-code-navigation/SKILL.md) | FAC 概述、模块地图、功能到源码映射、API 调用链 |
 | [`fac-readme-maintainer`](fac-readme-maintainer/SKILL.md) | 自底向上维护 README 与公式注记 |
+| [`fac-hpc-parallel`](fac-hpc-parallel/SKILL.md) | 超算并行执行 FAC：USE_MPI、核数/MPI 矩阵、并行提交与资源汇总 |
 
 ## 3. 输入/输出与验证
 

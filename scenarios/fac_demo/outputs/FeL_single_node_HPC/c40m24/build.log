@@ -1,0 +1,724 @@
+cd blas;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/blas'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 lsame.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dasum.f
+gfortran -c -fPIC -fopenmp -pthread -O2 daxpy.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dcopy.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dscal.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ddot.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgemm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgemv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dger.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dnrm2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 drot.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dspmv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dspr2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dswap.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dtbsv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dtrmm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dtrmv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dtrsm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 idamax.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xerbla.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmblas.a lsame.o dasum.o daxpy.o dcopy.o dscal.o ddot.o dgemm.o dgemv.o dger.o dnrm2.o drot.o dspmv.o dspr2.o dswap.o dtbsv.o dtrmm.o dtrmv.o dtrsm.o idamax.o xerbla.o
+ar: creating /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmblas.a
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/blas'
+cd lapack;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/lapack'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 dbdsdc.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dbdsqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbsv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbtf2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbtrf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbtrs.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgebak.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgebal.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgebd2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgebrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgeev.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgehd2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgehrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgelq2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgelqf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgeqr2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgeqrf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgesdd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgesv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgetf2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgetrf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgetrs.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dhseqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlabad.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlabrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlacpy.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dladiv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlae2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed0.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed1.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed3.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed4.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed5.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed6.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed7.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed8.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaed9.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaeda.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaev2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlahqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlahrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaln2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlamrg.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlange.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlanhs.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlansp.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlanst.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlanv2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlapy2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlarf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlarfb.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlarfg.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlarft.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlarfx.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlartg.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlas2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlascl.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd0.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd1.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd3.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd4.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd5.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd6.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd7.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasd8.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasda.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasdq.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasdt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaset.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq1.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq3.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq4.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq5.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasq6.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasrt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlassq.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlasv2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlaswp.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dopmtr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorg2r.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorgbr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorghr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorgl2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorglq.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorgqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorm2r.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dormbr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorml2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dormlq.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dormqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dspevd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dsptrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dstedc.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dsteqr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dsterf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dtrevc.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ieeeck.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ilaenv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dorg2l.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dopgtr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dspev.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dsbev.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlansb.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dsbtrd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlargv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlartv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlar2v.f
+gfortran -c -fPIC -fopenmp -pthread dlamch.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmlapack.a dbdsdc.o dbdsqr.o dgbsv.o dgbtf2.o dgbtrf.o dgbtrs.o dgebak.o dgebal.o dgebd2.o dgebrd.o dgeev.o dgehd2.o dgehrd.o dgelq2.o dgelqf.o dgeqr2.o dgeqrf.o dgesdd.o dgesv.o dgetf2.o dgetrf.o dgetrs.o dhseqr.o dlabad.o dlabrd.o dlacpy.o dladiv.o dlae2.o dlaed0.o dlaed1.o dlaed2.o dlaed3.o dlaed4.o dlaed5.o dlaed6.o dlaed7.o dlaed8.o dlaed9.o dlaeda.o dlaev2.o dlahqr.o dlahrd.o dlaln2.o dlamrg.o dlange.o dlanhs.o dlansp.o dlanst.o dlanv2.o dlapy2.o dlarf.o dlarfb.o dlarfg.o dlarft.o dlarfx.o dlartg.o dlas2.o dlascl.o dlasd0.o dlasd1.o dlasd2.o dlasd3.o dlasd4.o dlasd5.o dlasd6.o dlasd7.o dlasd8.o dlasda.o dlasdq.o dlasdt.o dlaset.o dlasq1.o dlasq2.o dlasq3.o dlasq4.o dlasq5.o dlasq6.o dlasr.o dlasrt.o dlassq.o dlasv2.o dlaswp.o dopmtr.o dorg2r.o dorgbr.o dorghr.o dorgl2.o dorglq.o dorgqr.o dorm2r.o dormbr.o dorml2.o dormlq.o dormqr.o dspevd.o dsptrd.o dstedc.o dsteqr.o dsterf.o dtrevc.o ieeeck.o ilaenv.o dorg2l.o dopgtr.o dspev.o dsbev.o dlansb.o dsbtrd.o dlargv.o dlartv.o dlar2v.o dlamch.o
+ar: creating /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmlapack.a
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/lapack'
+cd coul;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/coul'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 y5n.f
+gfortran -c -fPIC -fopenmp -pthread -O2 cphamp.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dlogam.f
+gfortran -c -fPIC -fopenmp -pthread -O2 argam.f
+gfortran -c -fPIC -fopenmp -pthread -O2 besljn.f
+gfortran -c -fPIC -fopenmp -pthread -O2 beslik.f
+gfortran -c -fPIC -fopenmp -pthread -O2 coulrad.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dcoul.f
+gfortran -c -fPIC -fopenmp -pthread -O2 njsym.f
+gfortran -c -fPIC -fopenmp -pthread -O2 njintr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 cmultip.f
+cmultip.f:2827.21:
+
+      DATA SRNAME /8H F01LBF /, ZERO /0.D0/, ONE /1.D0/                 
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+cmultip.f:2949.21:
+
+      DATA SRNAME /8H F04LDF /                                          
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+cmultip.f:2827.21:
+
+      DATA SRNAME /8H F01LBF /, ZERO /0.D0/, ONE /1.D0/                 
+                     1
+Warning: Extension: Conversion from HOLLERITH to REAL(8) at (1)
+cmultip.f:2949.21:
+
+      DATA SRNAME /8H F04LDF /                                          
+                     1
+Warning: Extension: Conversion from HOLLERITH to REAL(8) at (1)
+gfortran -c -fPIC -fopenmp -pthread -O2 mohrfin.f
+gfortran -c -fPIC -fopenmp -pthread -O2 expint.f
+gfortran -c -fPIC -fopenmp -pthread -O2 eione.f
+gfortran -c -fPIC -fopenmp -pthread d1mach.f clogam.f f11.f coulcc.f 
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a y5n.o cphamp.o dlogam.o argam.o besljn.o beslik.o coulrad.o dcoul.o njsym.o njintr.o cmultip.o mohrfin.o expint.o eione.o d1mach.o clogam.o f11.o coulcc.o
+ar: creating /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/coul'
+cd ode;      make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ode'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 cfode.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbfa.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgbsl.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgefa.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dgesl.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ewset.f
+gfortran -c -fPIC -fopenmp -pthread -O2 intdy.f
+intdy.f:73.21:
+
+ 80   call xerrwv(30hintdy--  k (=i1) illegal      ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+intdy.f:77.21:
+
+ 90   call xerrwv(30hintdy--  t (=r1) illegal      ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+intdy.f:80.11:
+
+     1  60h      t not in interval tcur - hu (= r1) to tcur (=r2)      ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+gfortran -c -fPIC -fopenmp -pthread -O2 lsode.f
+lsode.f:1247.21:
+
+      call xerrwv(50hlsode--  warning..internal t (=r1) and h (=r2) are,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1250.11:
+
+     1  60h      such that in the machine, t + h = t on the next step  ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1252.21:
+
+      call xerrwv(50h      (h = step size). solver will continue anyway,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1255.21:
+
+      call xerrwv(50hlsode--  above warning has been issued i1 times.  ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1257.21:
+
+      call xerrwv(50h      it will not be issued again for this problem,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1330.11:
+
+     1  60hlsode--  repeated calls with istate = 1 and tout = t (=r1)  ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1343.21:
+
+ 500  call xerrwv(50hlsode--  at current t (=r1), mxstep (=i1) steps   ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1345.21:
+
+      call xerrwv(50h      taken on this call before reaching tout     ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1351.21:
+
+      call xerrwv(50hlsode--  at t (=r1), ewt(i1) has become r2 .le. 0.,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1356.21:
+
+ 520  call xerrwv(50hlsode--  at t (=r1), too much accuracy requested  ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1358.21:
+
+      call xerrwv(50h      for precision of machine..  see tolsf (=r2) ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1364.21:
+
+ 530  call xerrwv(50hlsode--  at t(=r1) and step size h(=r2), the error,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1366.21:
+
+      call xerrwv(50h      test failed repeatedly or with abs(h) = hmin,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1371.21:
+
+ 540  call xerrwv(50hlsode--  at t (=r1) and step size h (=r2), the    ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1373.21:
+
+      call xerrwv(50h      corrector convergence failed repeatedly     ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1375.21:
+
+      call xerrwv(30h      or with abs(h) = hmin   ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1410.21:
+
+ 601  call xerrwv(30hlsode--  istate (=i1) illegal ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1413.21:
+
+ 602  call xerrwv(30hlsode--  itask (=i1) illegal  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1416.21:
+
+ 603  call xerrwv(50hlsode--  istate .gt. 1 but lsode not initialized  ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1419.21:
+
+ 604  call xerrwv(30hlsode--  neq (=i1) .lt. 1     ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1422.21:
+
+ 605  call xerrwv(50hlsode--  istate = 3 and neq increased (i1 to i2)  ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1425.21:
+
+ 606  call xerrwv(30hlsode--  itol (=i1) illegal   ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1428.21:
+
+ 607  call xerrwv(30hlsode--  iopt (=i1) illegal   ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1431.21:
+
+ 608  call xerrwv(30hlsode--  mf (=i1) illegal     ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1434.21:
+
+ 609  call xerrwv(50hlsode--  ml (=i1) illegal.. .lt.0 or .ge.neq (=i2),
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1437.21:
+
+ 610  call xerrwv(50hlsode--  mu (=i1) illegal.. .lt.0 or .ge.neq (=i2),
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1440.21:
+
+ 611  call xerrwv(30hlsode--  maxord (=i1) .lt. 0  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1443.21:
+
+ 612  call xerrwv(30hlsode--  mxstep (=i1) .lt. 0  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1446.21:
+
+ 613  call xerrwv(30hlsode--  mxhnil (=i1) .lt. 0  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1449.21:
+
+ 614  call xerrwv(40hlsode--  tout (=r1) behind t (=r2)      ,          
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1451.21:
+
+      call xerrwv(50h      integration direction is given by h0 (=r1)  ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1454.21:
+
+ 615  call xerrwv(30hlsode--  hmax (=r1) .lt. 0.0  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1457.21:
+
+ 616  call xerrwv(30hlsode--  hmin (=r1) .lt. 0.0  ,                    
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1461.11:
+
+     1  60hlsode--  rwork length needed, lenrw (=i1), exceeds lrw (=i2),
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1465.11:
+
+     1  60hlsode--  iwork length needed, leniw (=i1), exceeds liw (=i2),
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1468.21:
+
+ 619  call xerrwv(40hlsode--  rtol(i1) is r1 .lt. 0.0        ,          
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1471.21:
+
+ 620  call xerrwv(40hlsode--  atol(i1) is r1 .lt. 0.0        ,          
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1475.21:
+
+      call xerrwv(40hlsode--  ewt(i1) is r1 .le. 0.0         ,          
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1479.11:
+
+     1  60hlsode--  tout (=r1) too close to t(=r2) to start integration,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1483.11:
+
+     1  60hlsode--  itask = i1 and tout (=r1) behind tcur - hu (= r2)  ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1487.11:
+
+     1  60hlsode--  itask = 4 or 5 and tcrit (=r1) behind tcur (=r2)   ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1491.11:
+
+     1  60hlsode--  itask = 4 or 5 and tcrit (=r1) behind tout (=r2)   ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1494.21:
+
+ 626  call xerrwv(50hlsode--  at start of problem, too much accuracy   ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1497.11:
+
+     1  60h      requested for precision of machine..  see tolsf (=r1) ,
+           1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1501.21:
+
+ 627  call xerrwv(50hlsode--  trouble from intdy. itask = i1, tout = r1,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1508.21:
+
+ 710  call xerrwv(50hlsode--  repeated occurrences of illegal input    ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+lsode.f:1511.21:
+
+ 800  call xerrwv(50hlsode--  run aborted.. apparent infinite loop     ,
+                     1
+Warning: Legacy Extension: Hollerith constant at (1)
+gfortran -c -fPIC -fopenmp -pthread -O2 prepj.f
+prepj.f:67.37:
+
+      call jac (neq, tn, y, 0, 0, wm(3), n)                             
+                                     1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+prepj.f:97.21:
+
+      call dgefa (wm(3), n, n, iwm(21), ier)                            
+                     1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+prepj.f:97.35:
+
+      call dgefa (wm(3), n, n, iwm(21), ier)                            
+                                   1
+Warning: Array reference at (1) is out of bounds (21 > 1) in dimension 1
+prepj.f:101.9:
+
+ 300  wm(2) = hl0                                                       
+         1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+prepj.f:104.42:
+
+ 310    y(i) = y(i) + r*(h*savf(i) - yh(i,2))                           
+                                          1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 2
+prepj.f:105.29:
+
+      call f (neq, tn, y, wm(3))                                        
+                             1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+prepj.f:108.30:
+
+        r0 = h*savf(i) - yh(i,2)                                        
+                              1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 2
+prepj.f:120.15:
+
+      mu = iwm(2)                                                       
+               1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+prepj.f:134.15:
+
+      mu = iwm(2)                                                       
+               1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+prepj.f:168.21:
+
+      call dgbfa (wm(3), meband, n, ml, mu, iwm(21), ier)               
+                     1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+prepj.f:168.48:
+
+      call dgbfa (wm(3), meband, n, ml, mu, iwm(21), ier)               
+                                                1
+Warning: Array reference at (1) is out of bounds (21 > 1) in dimension 1
+gfortran -c -fPIC -fopenmp -pthread -O2 solsy.f
+solsy.f:45.21:
+
+ 100  call dgesl (wm(3), n, n, iwm(21), x, 0)                           
+                     1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+solsy.f:45.35:
+
+ 100  call dgesl (wm(3), n, n, iwm(21), x, 0)                           
+                                   1
+Warning: Array reference at (1) is out of bounds (21 > 1) in dimension 1
+solsy.f:48.16:
+
+ 300  phl0 = wm(2)                                                      
+                1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+solsy.f:50.9:
+
+      wm(2) = hl0                                                       
+         1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+solsy.f:64.15:
+
+      mu = iwm(2)                                                       
+               1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+solsy.f:66.21:
+
+      call dgbsl (wm(3), meband, n, ml, mu, iwm(21), x, 0)              
+                     1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+solsy.f:66.48:
+
+      call dgbsl (wm(3), meband, n, ml, mu, iwm(21), x, 0)              
+                                                1
+Warning: Array reference at (1) is out of bounds (21 > 1) in dimension 1
+gfortran -c -fPIC -fopenmp -pthread -O2 stode.f
+stode.f:254.35:
+
+        savf(i) = h*savf(i) - yh(i,2)                                   
+                                   1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 2
+stode.f:267.33:
+
+ 360    y(i) = h*savf(i) - (yh(i,2) + acor(i))                          
+                                 1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 2
+stode.f:448.13:
+
+ 650    yh(i,2) = h*savf(i)                                             
+             1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 2
+gfortran -c -fPIC -fopenmp -pthread -O2 vnorm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xerrwv.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a cfode.o dgbfa.o dgbsl.o dgefa.o dgesl.o ewset.o intdy.o lsode.o prepj.o solsy.o stode.o vnorm.o xerrwv.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ode'
+cd toms;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/toms'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 uvip3p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 uvip3c.f
+gfortran -c -fPIC -fopenmp -pthread -O2 uvip3i.f
+gfortran -c -fPIC -fopenmp -pthread -O2 tripack.f
+gfortran -c -fPIC -fopenmp -pthread -O2 rgbi3p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 sdbi3p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 tn.f
+gfortran -c -fPIC -fopenmp -pthread -O2 calcc.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dist.f
+gfortran -c -fPIC -fopenmp -pthread -O2 evalf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fstats.f
+gfortran -c -fPIC -fopenmp -pthread -O2 newpt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 order.f
+gfortran -c -fPIC -fopenmp -pthread -O2 partx.f
+gfortran -c -fPIC -fopenmp -pthread -O2 setstp.f
+gfortran -c -fPIC -fopenmp -pthread -O2 simplx.f
+gfortran -c -fPIC -fopenmp -pthread -O2 sortd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 start.f
+gfortran -c -fPIC -fopenmp -pthread -O2 subopt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 subplx.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fdi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm1p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm1m.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm1pi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm1mi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm3p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm5p.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm3pi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fm5pi.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a uvip3p.o uvip3c.o uvip3i.o tripack.o rgbi3p.o sdbi3p.o tn.o calcc.o dist.o evalf.o fstats.o newpt.o order.o partx.o setstp.o simplx.o sortd.o start.o subopt.o subplx.o fdi.o fm1p.o fm1m.o fm1pi.o fm1mi.o fm3p.o fm5p.o fm3pi.o fm5pi.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/toms'
+cd mpfun;    make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/mpfun'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 mpfun.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxadd.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxadj.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxlegf.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxpmu.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxpmup.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxpnrm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxpqnu.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxpsi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxqmu.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxqnu.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxred.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dxset.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fdump.f
+gfortran -c -fPIC -fopenmp -pthread -O2 i1mach.f
+gfortran -c -fPIC -fopenmp -pthread -O2 j4save.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xercnt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xerhlt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xermsg.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xerprn.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xersve.f
+gfortran -c -fPIC -fopenmp -pthread -O2 xgetua.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a mpfun.o dxadd.o dxadj.o dxlegf.o dxpmu.o dxpmup.o dxpnrm.o dxpqnu.o dxpsi.o dxqmu.o dxqnu.o dxred.o dxset.o fdump.o i1mach.o j4save.o xercnt.o xerhlt.o xermsg.o xerprn.o xersve.o xgetua.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/mpfun'
+cd minpack;  make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/minpack'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 dpmpar.f
+gfortran -c -fPIC -fopenmp -pthread -O2 enorm.f
+gfortran -c -fPIC -fopenmp -pthread -O2 lmder.f
+gfortran -c -fPIC -fopenmp -pthread -O2 lmder1.f
+gfortran -c -fPIC -fopenmp -pthread -O2 lmpar.f
+gfortran -c -fPIC -fopenmp -pthread -O2 qrfac.f
+gfortran -c -fPIC -fopenmp -pthread -O2 qrsolv.f
+gfortran -c -fPIC -fopenmp -pthread -O2 chkder.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a dpmpar.o enorm.o lmder.o lmder1.o lmpar.o qrfac.o qrsolv.o chkder.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/minpack'
+cd quadpack; make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/quadpack'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 dqpsrt.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqk15i.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqelg.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqagie.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqagi.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqags.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqagse.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqk21.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dqng.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a dqpsrt.o dqk15i.o dqelg.o dqagie.o dqagi.o dqags.o dqagse.o dqk21.o dqng.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/quadpack'
+cd ionis;    make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ionis'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 intexp.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ionis.f
+gfortran -c -fPIC -fopenmp -pthread -O2 recomb.f
+gfortran -c -fPIC -fopenmp -pthread -O2 recomb_Fe.f
+gfortran -c -fPIC -fopenmp -pthread -O2 cfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 colfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 phfit2.f
+gfortran -c -fPIC -fopenmp -pthread -O2 rrfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 drfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 nrrfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 ndrfit.f
+gfortran -c -fPIC -fopenmp -pthread -O2 beli.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a intexp.o ionis.o recomb.o recomb_Fe.o cfit.o colfit.o phfit2.o rrfit.o drfit.o nrrfit.o ndrfit.o beli.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ionis'
+cd modqed;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/modqed'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gfortran -c -fPIC -fopenmp -pthread -O2 iniqed.f
+gfortran -c -fPIC -fopenmp -pthread -O2 genqed.f
+gfortran -c -fPIC -fopenmp -pthread -O2 atom_data.f
+gfortran -c -fPIC -fopenmp -pthread -O2 segrid.f
+gfortran -c -fPIC -fopenmp -pthread -O2 pot_wav.f
+gfortran -c -fPIC -fopenmp -pthread -O2 se_pot.f
+gfortran -c -fPIC -fopenmp -pthread -O2 dirac.f
+gfortran -c -fPIC -fopenmp -pthread -O2 integr.f
+gfortran -c -fPIC -fopenmp -pthread -O2 uehling.f
+gfortran -c -fPIC -fopenmp -pthread -O2 fse_dat.f
+gfortran -c -fPIC -fopenmp -pthread -O2 nucl.f
+gfortran -c -fPIC -fopenmp -pthread -O2 wk.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a iniqed.o genqed.o atom_data.o segrid.o pot_wav.o se_pot.o dirac.o integr.o uehling.o fse_dat.o nucl.o wk.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/modqed'
+cd faclib;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC pmalloc.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC mmalloc.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC omalloc.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC parser.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC array.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC interpolation.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC grid.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC coulomb.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC config.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC cfp.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC angular.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC rcfp.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC recouple.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC orbital.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC radial.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC dbase.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC nucleus.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC structure.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC mbpt.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC transition.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC excitation.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC recombination.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC ionization.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC rmatrix.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC init.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC rates.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC crm.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC polarization.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC mpiutil.c
+gcc -c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC fftsg.c
+gfortran -fPIC -fopenmp -pthread -O2 -c -o f2c.o f2c.f90
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a pmalloc.o mmalloc.o omalloc.o parser.o array.o interpolation.o grid.o coulomb.o config.o cfp.o angular.o rcfp.o recouple.o orbital.o radial.o dbase.o nucleus.o structure.o mbpt.o transition.o excitation.o recombination.o ionization.o rmatrix.o init.o rates.o crm.o polarization.o mpiutil.o fftsg.o f2c.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib'
+ranlib libfac.a
+cd sfac; make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/sfac'
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+gcc -o sfac sfac.c stoken.c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -lfac -lmlapack -lmblas -fopenmp -pthread -lgcc_eh -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lgfortran -lm -lquadmath
+gcc -o scrm scrm.c stoken.c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -lfac -lmlapack -lmblas -fopenmp -pthread -lgcc_eh -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lgfortran -lm -lquadmath
+gcc -o spol spol.c stoken.c -fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -lfac -lmlapack -lmblas -fopenmp -pthread -lgcc_eh -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lgfortran -lm -lquadmath
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/sfac'

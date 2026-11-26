@@ -2,6 +2,34 @@
 
 本文件记录 FAC 项目的工程化、文档体系、Agent 支持、部署与验证变更。历史上游记录保留在 [`ChangeLog`](ChangeLog)。
 
+## 2026-11-26
+
+### Added
+
+- 新增 `skills/fac-hpc-parallel/`，覆盖超算并行执行、USE_MPI 检查、核数/MPI 矩阵、并行提交与资源汇总。
+- 新增 FeL 参数矩阵配置 `scenarios/fac_demo/cases/FeL_single_node/matrix.json`。
+- 新增 `scenarios/run/remote/batch_submit.py` 与 `matrix_report.py`。
+
+### Changed
+
+- 拆分 SLURM 核数与 FAC MPI 数接口：
+  - `--cores N` 控制 SLURM CPU 数。
+  - `--mpi M` 控制 `fac.InitializeMPI(M)` 与 `OMP_NUM_THREADS=M`。
+  - `make -j` 使用核数，不与 MPI 数混用。
+- `hpc.py` 新增 `matrix`、`wait-many`、`collect` 子命令。
+
+### Validation
+
+- 复用 `(40,40)` 基线作业 `4973989`（`02:45:15`），未重复提交。
+- 并行提交并全部完成：
+  - `(16,8)` Job `4974612`
+  - `(24,16)` Job `4974613`
+  - `(40,24)` Job `4974614`
+  - `(40,32)` Job `4974615`
+- 所有组合 `COMPLETED`、`fe_exit=0`、`spec_exit=0`、产物计数一致。
+- 推荐组合：`(24 核, 16 MPI)`，FAC 总墙钟 `8150.632 s`，约比基线快 `18%`。
+- 该集群 `sacct` 的 TotalCPU/AveCPU/MaxRSS 返回空或 0，已在结果中明确记录，不做推算。
+
 ## 2026-11-25
 
 ### Added
@@ -13,6 +41,7 @@
   - `fac-demo-troubleshooting`
   - `fac-code-navigation`
   - `fac-readme-maintainer`
+  - `fac-hpc-parallel`（2026-11-26 新增）
 - 新增只读 MCP 风格上下文服务 `mcp_server.py`，供各类 Agent 读取 skill、README 与审计信息。
 - 新增 `scripts/` 编号化工具体系：
   - `01_env_diagnose/`：环境检查

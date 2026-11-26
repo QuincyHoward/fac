@@ -1,0 +1,20 @@
+{
+  "fe_exit": 0,
+  "spec_exit": 0,
+  "data_files": 36,
+  "data_en": 6,
+  "data_tr": 6,
+  "data_ce": 6,
+  "data_ci": 6,
+  "data_ai": 6,
+  "data_rr": 6,
+  "fe08_files": 210,
+  "fe08_rt": 42,
+  "fe08_sp": 42,
+  "slurm_cores": 40,
+  "fac_mpi_threads": 24,
+  "fe_wall_seconds": 7817.733,
+  "spec_wall_seconds": 934.745,
+  "total_wall_seconds": 8752.479,
+  "ok": true
+}

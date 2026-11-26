@@ -113,7 +113,7 @@ demo/ 示例与 ref/ 参考结果（回归测试）；doc/ 手册与论文（理
 | 电子碰撞电离 | $\sigma(\varepsilon_0)=\int_0^{(\varepsilon_0-I)/2}\sigma(\varepsilon_0,\varepsilon)\,d\varepsilon$ | `faclib/ionization.c`；[`demo/ionization/`](demo/ionization/README.md) |
 | 光电离 / 辐射复合 | $\sigma_{PI}=2\pi\alpha\,df/dE$；Milne 关系给出 $\sigma_{RR}$ | `faclib/recombination.c`；[`demo/pirr/`](demo/pirr/README.md) |
 | 自电离 / 双电子复合 | $\alpha^{DR}(T)=\frac{h^3}{(2\pi m_e k_BT)^{3/2}}\sum_i \frac{g_i}{2g_f}A^a_i B_i e^{-E_{if}/k_BT}$ | `faclib/recombination.c`；[`demo/aidr/`](demo/aidr/README.md) |
-| 辐射跃迁 | $A_{ji}=\dfrac{64\pi^4\nu^3}{3hc^3(2J_j+1)}|\langle j\|D\|i\rangle|^2$ | `faclib/transition.c` |
+| 辐射跃迁 | $A_{ji}=\dfrac{64\pi^4\nu^3}{3hc^3(2J_j+1)} \|\langle j\|D\|i\rangle \|^2$ | `faclib/transition.c` |
 | 谱线偏振 | FAC 输出 $P=a/b=\sum_t F_tPL2_tA_tB_t\big/\sum_t PL_tA_tB_t$（球张量比值，非初等 $I_\parallel/I_\perp$ 字面式） | `faclib/polarization.c`；[`demo/polariz/`](demo/polariz/README.md) |
 | 碰撞辐射模型 | $\dfrac{dn_i}{dt}=\sum_j n_jR_{ji}-n_i\sum_jR_{ij}$ | `faclib/crm.c`；[`demo/NeL/`](demo/NeL/README.md) |
 | Dirac R 矩阵 | $\Omega_{ij}$ 由内区匹配到外部 Coulomb 波函数得到 | `faclib/rmatrix.c`；[`demo/rmatrix/`](demo/rmatrix/README.md) |
@@ -148,7 +148,7 @@ demo/ 示例与 ref/ 参考结果（回归测试）；doc/ 手册与论文（理
 
 ## 6.2 工程化入口与 README 维护
 
-- Skill 唯一事实源：`skills/`，其中 [`fac-readme-maintainer`](skills/fac-readme-maintainer/SKILL.md) 负责自底向上维护 README 与公式注记。
+- Skill 唯一事实源：`skills/`，其中 [`fac-readme-maintainer`](skills/fac-readme-maintainer/SKILL.md) 负责自底向上维护 README 与公式注记，[`fac-hpc-parallel`](skills/fac-hpc-parallel/SKILL.md) 负责超算并行执行与参数矩阵。
 - 常用脚本：`scripts/`；凭证管理：`scripts/credentials/`（namespace 默认 `specx`，支持未来 `flychk`）；场景体系：`scenarios/`；演示场景：`scenarios/fac_demo/`。
 - Agent 上下文服务：`mcp_server.py`，只读暴露 skill、上下文协议与 README；依赖见 [`DEPENDENCIES.md`](DEPENDENCIES.md)。
 - 公式核查结果以各底层目录 README 为准；源码未溯源公式使用 `\underline{$...$}` 标记，源码已溯源公式不加下划线。

@@ -14,7 +14,9 @@ scenarios/  ->  scenarios/run/  ->  scripts/credentials/
 
 ## 子模块
 
-- `execution.py`：唯一目标解析与执行入口。
+- `execution.py`：唯一目标解析与执行入口；核数与 FAC MPI 数为两个独立参数。
+- `remote/batch_submit.py`：并行提交独立参数矩阵。
+- `remote/matrix_report.py`：合并 SLURM 资源、FAC 内部耗时与产物一致性。
 - `modes/`：local / wsl / hpc-insitu 执行体。
 - `remote/`：SSH、SLURM、作业渲染、提交、回传。
 - `env/`：装置默认值与资源配置。

@@ -1,0 +1,79 @@
+cd blas;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/blas'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmblas.a lsame.o dasum.o daxpy.o dcopy.o dscal.o ddot.o dgemm.o dgemv.o dger.o dnrm2.o drot.o dspmv.o dspr2.o dswap.o dtbsv.o dtrmm.o dtrmv.o dtrsm.o idamax.o xerbla.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/blas'
+cd lapack;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/lapack'
+gfortran -c -fPIC -fopenmp -pthread dlamch.f
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libmlapack.a dbdsdc.o dbdsqr.o dgbsv.o dgbtf2.o dgbtrf.o dgbtrs.o dgebak.o dgebal.o dgebd2.o dgebrd.o dgeev.o dgehd2.o dgehrd.o dgelq2.o dgelqf.o dgeqr2.o dgeqrf.o dgesdd.o dgesv.o dgetf2.o dgetrf.o dgetrs.o dhseqr.o dlabad.o dlabrd.o dlacpy.o dladiv.o dlae2.o dlaed0.o dlaed1.o dlaed2.o dlaed3.o dlaed4.o dlaed5.o dlaed6.o dlaed7.o dlaed8.o dlaed9.o dlaeda.o dlaev2.o dlahqr.o dlahrd.o dlaln2.o dlamrg.o dlange.o dlanhs.o dlansp.o dlanst.o dlanv2.o dlapy2.o dlarf.o dlarfb.o dlarfg.o dlarft.o dlarfx.o dlartg.o dlas2.o dlascl.o dlasd0.o dlasd1.o dlasd2.o dlasd3.o dlasd4.o dlasd5.o dlasd6.o dlasd7.o dlasd8.o dlasda.o dlasdq.o dlasdt.o dlaset.o dlasq1.o dlasq2.o dlasq3.o dlasq4.o dlasq5.o dlasq6.o dlasr.o dlasrt.o dlassq.o dlasv2.o dlaswp.o dopmtr.o dorg2r.o dorgbr.o dorghr.o dorgl2.o dorglq.o dorgqr.o dorm2r.o dormbr.o dorml2.o dormlq.o dormqr.o dspevd.o dsptrd.o dstedc.o dsteqr.o dsterf.o dtrevc.o ieeeck.o ilaenv.o dorg2l.o dopgtr.o dspev.o dsbev.o dlansb.o dsbtrd.o dlargv.o dlartv.o dlar2v.o dlamch.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/lapack'
+cd coul;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/coul'
+gfortran -c -fPIC -fopenmp -pthread d1mach.f clogam.f f11.f coulcc.f 
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a y5n.o cphamp.o dlogam.o argam.o besljn.o beslik.o coulrad.o dcoul.o njsym.o njintr.o cmultip.o mohrfin.o expint.o eione.o d1mach.o clogam.o f11.o coulcc.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/coul'
+cd ode;      make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ode'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a cfode.o dgbfa.o dgbsl.o dgefa.o dgesl.o ewset.o intdy.o lsode.o prepj.o solsy.o stode.o vnorm.o xerrwv.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ode'
+cd toms;     make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/toms'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a uvip3p.o uvip3c.o uvip3i.o tripack.o rgbi3p.o sdbi3p.o tn.o calcc.o dist.o evalf.o fstats.o newpt.o order.o partx.o setstp.o simplx.o sortd.o start.o subopt.o subplx.o fdi.o fm1p.o fm1m.o fm1pi.o fm1mi.o fm3p.o fm5p.o fm3pi.o fm5pi.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/toms'
+cd mpfun;    make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/mpfun'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a mpfun.o dxadd.o dxadj.o dxlegf.o dxpmu.o dxpmup.o dxpnrm.o dxpqnu.o dxpsi.o dxqmu.o dxqnu.o dxred.o dxset.o fdump.o i1mach.o j4save.o xercnt.o xerhlt.o xermsg.o xerprn.o xersve.o xgetua.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/mpfun'
+cd minpack;  make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/minpack'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a dpmpar.o enorm.o lmder.o lmder1.o lmpar.o qrfac.o qrsolv.o chkder.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/minpack'
+cd quadpack; make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/quadpack'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a dqpsrt.o dqk15i.o dqelg.o dqagie.o dqagi.o dqags.o dqagse.o dqk21.o dqng.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/quadpack'
+cd ionis;    make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ionis'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a intexp.o ionis.o recomb.o recomb_Fe.o cfit.o colfit.o phfit2.o rrfit.o drfit.o nrrfit.o ndrfit.o beli.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/ionis'
+cd modqed;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/modqed'
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a iniqed.o genqed.o atom_data.o segrid.o pot_wav.o se_pot.o dirac.o integr.o uehling.o fse_dat.o nucl.o wk.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/modqed'
+cd faclib;   make
+make[1]: Entering directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib'
+gfortran -fPIC -fopenmp -pthread -O2 -c -o f2c.o f2c.f90
+ar r /publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/libfac.a pmalloc.o mmalloc.o omalloc.o parser.o array.o interpolation.o grid.o coulomb.o config.o cfp.o angular.o rcfp.o recouple.o orbital.o radial.o dbase.o nucleus.o structure.o mbpt.o transition.o excitation.o recombination.o ionization.o rmatrix.o init.o rates.o crm.o polarization.o mpiutil.o fftsg.o f2c.o
+make[1]: Leaving directory `/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib'
+ranlib libfac.a
+/public1/soft/python/3.8.6/bin/python3.8 setup.py build --force -ccompiler="gcc" -extracomp="-fopenmp -pthread -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -O2 -fPIC" -extralink="-L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build  -lfac -lmlapack -lmblas -fopenmp -pthread -lgcc_eh -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lgfortran -lm -lquadmath" -rmpylink="" -addpylink=""
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-3.8
+creating build/lib.linux-x86_64-3.8/pfac
+copying python/__init__.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/const.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/config.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/table.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/atom.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/spm.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/rfac.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/version.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/consts.py -> build/lib.linux-x86_64-3.8/pfac
+copying python/aa.py -> build/lib.linux-x86_64-3.8/pfac
+running build_ext
+building 'pfac.fac' extension
+creating build/temp.linux-x86_64-3.8
+creating build/temp.linux-x86_64-3.8/python
+gcc -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -I/public1/soft/python/3.8.6/include/python3.8 -c python/fac.c -o build/temp.linux-x86_64-3.8/python/fac.o -fopenmp -pthread -O2 -fPIC
+gcc build/temp.linux-x86_64-3.8/python/fac.o -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lfac -lmlapack -lmblas -lgcc_eh -lgfortran -lm -lquadmath -o build/lib.linux-x86_64-3.8/pfac/fac.cpython-38-x86_64-linux-gnu.so -fopenmp -pthread -pthread -shared
+building 'pfac.crm' extension
+gcc -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -I/public1/soft/python/3.8.6/include/python3.8 -c python/pcrm.c -o build/temp.linux-x86_64-3.8/python/pcrm.o -fopenmp -pthread -O2 -fPIC
+gcc build/temp.linux-x86_64-3.8/python/pcrm.o -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lfac -lmlapack -lmblas -lgcc_eh -lgfortran -lm -lquadmath -o build/lib.linux-x86_64-3.8/pfac/crm.cpython-38-x86_64-linux-gnu.so -fopenmp -pthread -pthread -shared
+building 'pfac.pol' extension
+gcc -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -I/public1/soft/python/3.8.6/include/python3.8 -c python/ppol.c -o build/temp.linux-x86_64-3.8/python/ppol.o -fopenmp -pthread -O2 -fPIC
+gcc build/temp.linux-x86_64-3.8/python/ppol.o -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lfac -lmlapack -lmblas -lgcc_eh -lgfortran -lm -lquadmath -o build/lib.linux-x86_64-3.8/pfac/pol.cpython-38-x86_64-linux-gnu.so -fopenmp -pthread -pthread -shared
+building 'pfac.util' extension
+gcc -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -I/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build/faclib -I/public1/soft/python/3.8.6/include/python3.8 -c python/util.c -o build/temp.linux-x86_64-3.8/python/util.o -fopenmp -pthread -O2 -fPIC
+gcc build/temp.linux-x86_64-3.8/python/util.o -L/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/work/fac_build -L/opt/slurm/slurm/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/public1/soft/oneAPI/2022.1/mpi/latest/libfabric/lib -L/public1/soft/oneAPI/2022.1/mpi/latest/lib/release -L/public1/soft/oneAPI/2022.1/mpi/latest/lib -L/public1/soft/oneAPI/2022.1/ccl/latest/lib/cpu -L/public1/soft/oneAPI/2022.1/dal/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/tbb/latest/lib/intel64/gcc4.8 -L/public1/soft/oneAPI/2022.1/mkl/latest/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/compiler/lib/intel64 -L/public1/soft/oneAPI/2022.1/compiler/latest/linux/lib -L/public1/soft/oneAPI/2022.1/ipp/latest/lib -L/opt/slurm/slurm/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. -lfac -lmlapack -lmblas -lgcc_eh -lgfortran -lm -lquadmath -o build/lib.linux-x86_64-3.8/pfac/util.cpython-38-x86_64-linux-gnu.so -fopenmp -pthread -pthread -shared

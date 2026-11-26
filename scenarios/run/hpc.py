@@ -66,6 +66,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     matrix.add_argument("-n", "--dry-run", action="store_true")
 
+    collect = sub.add_parser("collect", help="汇总矩阵资源与产物一致性。")
+    collect.add_argument(
+        "--manifest",
+        default=str(ROOT / "scenarios/fac_demo/outputs/FeL_single_node_HPC/matrix_jobs.json"),
+    )
+
     wait = sub.add_parser("wait", help="等待作业结束。")
     wait.add_argument("job")
     wait.add_argument("--timeout", type=int, default=7200)
@@ -101,6 +107,27 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print("jobs manifest:", out)
+        return 0
+
+    if args.command == "collect":
+        from scenarios.run.remote.matrix_report import collect_matrix
+
+        payload = collect_matrix(Path(args.manifest), args.namespace, args.credential)
+        output_dir = Path(args.manifest).parent
+        print("matrix summary:", output_dir / "matrix_summary.md")
+        print("matrix json:", output_dir / "matrix_summary.json")
+        for row in payload["rows"]:
+            print(
+                "%dc/%dm\t%s\tstate=%s\ttotal_wall=%s\tok=%s"
+                % (
+                    row["cores"],
+                    row["mpi"],
+                    row["job_id"],
+                    row.get("state", ""),
+                    row.get("fac", {}).get("total_wall_seconds", ""),
+                    row.get("fac", {}).get("ok", False),
+                )
+            )
         return 0
 
     if args.command == "submit" and args.dry_run:

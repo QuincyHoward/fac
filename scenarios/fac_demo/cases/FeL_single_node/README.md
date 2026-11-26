@@ -32,6 +32,12 @@ python -m scenarios.run.hpc download --remote <archive_dir> --local <local_dir>
 - `summary.json.ok=true`
 - 回传摘要：`scenarios/fac_demo/outputs/FeL_single_node_HPC/`
 
+## 参数矩阵（2026-11-26）
+
+四组独立作业已并行提交并全部完成；基线 `(40,40)` 复用未重跑。详细结果见 [`../../outputs/FeL_single_node_HPC/matrix_summary.md`](../../outputs/FeL_single_node_HPC/matrix_summary.md)。
+
+推荐组合：`(24 核, 16 MPI)`，FAC 总墙钟 `8150.632 s`，约比 `(40,40)` 基线快 `18%`。
+
 ## 已知事项
 
 - 原 `spec.py` 只有 `neles = range(8,9)`，本轮只生成 Fe08 谱表。

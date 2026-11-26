@@ -55,4 +55,11 @@ wsl -d Ubuntu-22.04 -- python3 /root/QC/fac/fac/scripts/01_env_diagnose/env_chec
 - PFAC 扩展应用 `make pfac` 构建，直接 `python setup.py build` 会缺少 `init.h` include 路径。
 - HPC 系统 `python3` 为 3.6.8 且无 numpy；FAC 构建与 FeL 场景使用 `/public1/soft/python/3.8.6/bin/python3.8`。
 
+## 6. 并行参数矩阵经验
+
+- SLURM 核数与 FAC MPI 数必须拆开：`--cores N` 控制 CPU 申请，`--mpi M` 控制 `fac.InitializeMPI(M)`。
+- FeL 实测推荐 `(24,16)`；更多 MPI 数不一定更快，`(40,32)` 比 `(40,24)` 更慢。
+- 多个矩阵作业可以使用独立 job name/run_id/work/archive，通过一个 SSH 会话依次提交，SLURM 侧并行运行。
+- 详细结果见 `skills/fac-hpc-parallel/references/fel-matrix-results.md`。
+
 父级 [`../README.md`](../README.md)。
