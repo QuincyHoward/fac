@@ -39,7 +39,7 @@ scripts/
 | `04_audit` | `audit_formula_underlines.py` | 审计公式下划线写法与 `<u>` 残留 |
 | `05_demo` | `list_archetypes.py` | 列出 demo 通用原型 |
 | `06_scenarios` | `audit_scenarios.py` | 审计场景清单、scene.json 与锚点 |
-| `07_git_publish` | `gitee_push.py` / `gitee_pull.py` / `git_status.py` | Gitee 一键推送、拉取与状态 |
+| `07_git_publish` | `gitee_push.py` / `gitee_pull.py` / `git_status.py` | Gitee 一键推送、Gitee 覆盖拉取与状态 |
 | `07_git_publish` | `gitee_pull_github.py` | 拉取 GitHub 官方源码并覆盖本地冲突文件；保护根目录 `.gitignore` 与 `README.md` |
 | `08_release` | `package.py` / `publish_pypi.py` | 打包、检查与 PyPI/TestPyPI 发布 |
 | `09_backup` | `backup.py` | 发布前备份 |
@@ -53,7 +53,8 @@ python scripts/credentials/manage.py              # 凭证主菜单
 python scripts/07_git_publish/git_status.py
 python scripts/07_git_publish/gitee_push.py -m "feat: update"
 python scripts/07_git_publish/gitee_push.py -n
-python scripts/07_git_publish/gitee_pull.py --ff-only
+python scripts/07_git_publish/gitee_pull.py -n
+python scripts/07_git_publish/gitee_pull.py
 python scripts/07_git_publish/gitee_pull_github.py --dry-run
 python scripts/07_git_publish/gitee_pull_github.py
 python scripts/08_release/package.py --check
