@@ -1,0 +1,7 @@
+{
+  "name": "rmatrix",
+  "archetype": "R-matrix",
+  "description": "Two-stage R-matrix boundary and collision strength workflow.",
+  "entry": "run.py",
+  "expected_outputs": ["*.b*", "*.d*", "r1.d"]
+}

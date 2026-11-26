@@ -1,0 +1,7 @@
+{
+  "name": "crm_spectrum",
+  "archetype": "CRM + spectrum synthesis",
+  "description": "Solve level populations and synthesize spectrum tables.",
+  "entry": "run.py",
+  "expected_outputs": ["*.sp", "*.rt", "*.r*"]
+}

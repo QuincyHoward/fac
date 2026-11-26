@@ -1,0 +1,15 @@
+{
+  "name": "fac_demo",
+  "description": "Abstract FAC demo archetypes for one-click execution, output reading and plotting.",
+  "cases": [
+    {"name": "structure_tr", "path": "cases/structure_tr", "archetype": "structure+radiative transition"},
+    {"name": "collision", "path": "cases/collision", "archetype": "collisional excitation/ionization"},
+    {"name": "pi_rr", "path": "cases/pi_rr", "archetype": "photoionization + radiative recombination"},
+    {"name": "ai_dc", "path": "cases/ai_dc", "archetype": "autoionization + dielectronic capture"},
+    {"name": "crm_spectrum", "path": "cases/crm_spectrum", "archetype": "CRM + spectrum synthesis"},
+    {"name": "polarization", "path": "cases/polarization", "archetype": "polarization"},
+    {"name": "rmatrix", "path": "cases/rmatrix", "archetype": "R-matrix"},
+    {"name": "diagnostics", "path": "cases/diagnostics", "archetype": "low-level diagnostics"},
+    {"name": "FeL_single_node", "path": "cases/FeL_single_node", "archetype": "large multi-ion spectroscopy"}
+  ]
+}

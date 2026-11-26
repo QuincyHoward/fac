@@ -1,0 +1,16 @@
+{
+  "fe_exit": 0,
+  "spec_exit": 0,
+  "data_files": 36,
+  "data_en": 6,
+  "data_tr": 6,
+  "data_ce": 6,
+  "data_ci": 6,
+  "data_ai": 6,
+  "data_rr": 6,
+  "fe08_files": 210,
+  "fe08_rt": 42,
+  "fe08_sp": 42,
+  "ok": true,
+  "cores": 40
+}

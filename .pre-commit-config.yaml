@@ -1,0 +1,40 @@
+# FAC pre-commit / pre-push 门禁
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: fac-readme-audit
+        name: FAC README audit
+        entry: python scripts/04_audit/audit_readmes.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit, pre-push]
+
+      - id: fac-formula-audit
+        name: FAC formula underline audit
+        entry: python scripts/04_audit/audit_formula_underlines.py
+        language: system
+        pass_filenames: false
+        stages: [pre-commit, pre-push]
+
+      - id: fac-scenario-audit
+        name: FAC scenario audit
+        entry: python scripts/06_scenarios/audit_scenarios.py
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+      - id: fac-python-compile
+        name: FAC python compile check
+        entry: python -m compileall -q scripts scenarios mcp_server.py
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

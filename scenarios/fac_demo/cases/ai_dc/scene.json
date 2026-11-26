@@ -1,0 +1,7 @@
+{
+  "name": "ai_dc",
+  "archetype": "autoionization + dielectronic capture",
+  "description": "Generate AI rates and DC strengths.",
+  "entry": "run.py",
+  "expected_outputs": ["*.lev", "*.ai"]
+}

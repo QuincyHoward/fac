@@ -1,0 +1,7 @@
+{
+  "name": "polarization",
+  "archetype": "polarization",
+  "description": "Generate magnetic sublevel populations and polarization tables.",
+  "entry": "run.py",
+  "expected_outputs": ["*.en", "*.tr", "*.ce", "pop.txt", "pol.txt"]
+}

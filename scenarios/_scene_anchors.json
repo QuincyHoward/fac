@@ -1,0 +1,6 @@
+{
+  "_comment": "Logical anchors are POSIX paths relative to scenarios/. Move directories freely and update only these values when a logical name must follow a moved resource.",
+  "fac_demo": "fac_demo",
+  "fac_demo.outputs": "fac_demo/outputs",
+  "fac_demo.plots": "fac_demo/plots"
+}

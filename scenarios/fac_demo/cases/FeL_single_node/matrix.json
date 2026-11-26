@@ -1,0 +1,16 @@
+{
+  "scene": "FeL_single_node",
+  "walltime": "03:00:00",
+  "baseline": {
+    "cores": 40,
+    "mpi": 40,
+    "job_id": "4973989",
+    "source": "scenarios/fac_demo/outputs/FeL_single_node_HPC/summary.json"
+  },
+  "combinations": [
+    {"cores": 16, "mpi": 8},
+    {"cores": 24, "mpi": 16},
+    {"cores": 40, "mpi": 24},
+    {"cores": 40, "mpi": 32}
+  ]
+}

@@ -1,0 +1,42 @@
+# Default: normalize text files to LF in the repository and working tree.
+* text=auto eol=lf
+
+# Source and documentation.
+*.c text eol=lf
+*.h text eol=lf
+*.f text eol=lf
+*.f90 text eol=lf
+*.inc text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+*.in text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cfg text eol=lf
+*.txt text eol=lf
+Makefile text eol=lf
+
+# Windows launchers intentionally use CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets and generated artifacts.
+*.a binary
+*.so binary
+*.dll binary
+*.o binary
+*.obj binary
+*.b binary
+*.pyc binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.dvi binary
+*.ps binary
+*.eps binary

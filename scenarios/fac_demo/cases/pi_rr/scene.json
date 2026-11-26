@@ -1,0 +1,7 @@
+{
+  "name": "pi_rr",
+  "archetype": "photoionization + radiative recombination",
+  "description": "Generate PI/RR tables from bound-free transitions.",
+  "entry": "run.py",
+  "expected_outputs": ["*.lev", "*.rr"]
+}

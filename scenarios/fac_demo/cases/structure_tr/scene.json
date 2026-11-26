@@ -1,0 +1,7 @@
+{
+  "name": "structure_tr",
+  "archetype": "structure+radiative transition",
+  "description": "Build atomic structure then radiative transition tables.",
+  "entry": "run.py",
+  "expected_outputs": ["*.en", "*.tr", "*.pot"]
+}

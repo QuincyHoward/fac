@@ -1,0 +1,18 @@
+---
+description: FAC 项目通用上下文入口；在 Cursor 中处理本仓库任务时启用
+globs:
+alwaysApply: true
+---
+
+# FAC Context
+
+在 `{fac/}` 项目中，始终以 [`AGENTS.md`](../../AGENTS.md) 为上下文协议事实源。
+
+读取顺序：
+
+1. `AGENTS.md`
+2. 按任务触发一个相关 skill：`fac-onboarding`、`fac-demo-workflow`、`fac-demo-troubleshooting`、`fac-code-navigation`、`fac-readme-maintainer`
+3. 必要时读取 skill 的 `references/`
+4. 最后读取具体 README 或源码
+
+必须遵守：独立工作目录用 `<WORK_ROOT>` 表示；原始源码树只读；并行任务隔离输出与日志；基准表不可随意覆盖；凭证管理走 `scripts/credentials/`，默认脱敏，不打印明文密钥。

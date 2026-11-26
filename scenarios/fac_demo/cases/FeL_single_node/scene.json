@@ -1,0 +1,7 @@
+{
+  "name": "FeL_single_node",
+  "archetype": "large multi-ion spectroscopy",
+  "description": "Single-node full-core FeL data and spectrum generation from demo/FeL.",
+  "entry": "run.py",
+  "expected_outputs": ["data/*.en", "data/*.tr", "data/*.ce", "data/*.ci", "data/*.ai", "data/*.rr", "Fe08/*.rt", "Fe08/*.sp", "summary.json"]
+}

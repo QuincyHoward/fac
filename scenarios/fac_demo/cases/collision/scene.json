@@ -1,0 +1,7 @@
+{
+  "name": "collision",
+  "archetype": "collisional excitation/ionization",
+  "description": "Generate collision strength and cross section tables.",
+  "entry": "run.py",
+  "expected_outputs": ["*.ce", "*.ceM", "*.ci"]
+}

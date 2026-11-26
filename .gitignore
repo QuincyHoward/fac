@@ -1,11 +1,26 @@
-# Ignore objects and archives, anywhere in the tree.
-*.[oa]
-*~
-*.aux
-*.log
-*.dvi
+# ====================================================================
+# FAC .gitignore（章节重组版）
+# --------------------------------------------------------------------
+# 目标：
+#   1. demo/ 中的参考表与产物允许入库，便于示例复现与核查；
+#   2. 其他目录不跟踪产物、日志、缓存、报告与临时文件；
+#   3. 大文件、归档、媒体和敏感文件默认忽略；
+#   4. 例外规则统一放在文件末尾，避免被前置规则覆盖。
+#
+# 注意：gitignore 后定义优先；所有 ! 反选规则必须位于相关忽略规则之后。
+# ====================================================================
 
-# Ignore generated Makefiles
+# --------------------------------------------------------------------
+# 第 0 章 
+# --------------------------------------------------------------------
+*.png
+
+
+
+
+# --------------------------------------------------------------------
+# 第 1 章 构建系统生成文件
+# --------------------------------------------------------------------
 /Makefile
 blas/Makefile
 coul/Makefile
@@ -22,47 +37,148 @@ sfac/Makefile
 tests/Makefile
 python/Makefile
 
-# Ignore binaries
-sfac/scrm
-sfac/sfac
-sfac/spol
-python/mpy
-
-# configure-generated
 sysdef.h
 config.log
 config.status
 autom4te.cache/
+config.cache
+configure.lineno
 
-# Python build dirs
+# --------------------------------------------------------------------
+# 第 2 章 编译产物与二进制
+# --------------------------------------------------------------------
+*.[oa]
+*.obj
+*.mod
+*.so
+*.dll
+*.dylib
+*.exe
+*.pyc
+*.pyd
+*.class
+*.jar
+
+sfac/sfac
+sfac/scrm
+sfac/spol
+python/mpy
+
+# --------------------------------------------------------------------
+# 第 3 章 FAC 输出表与运行产物
+# --------------------------------------------------------------------
+# 这里默认忽略全部输出表；demo/ 例外在第 8 章统一放行。
+*.b
+*.ai
+*.ce
+*.cer
+*.ceM
+*.ci
+*.cir
+*.en
+*.rr
+*.lev
+*.pot
+*.tr
+*.sp
+*.rt
+*.ham
+*.d
+*.d[0-9]*
+*.r[0-9]*
+*.sav
+*.plt
+*.grid
+*.pot.bin
+
+# --------------------------------------------------------------------
+# 第 4 章 日志、报告、临时目录与缓存
+# --------------------------------------------------------------------
+*.log
+*.sbatch
+**/logs/
+**/out/
+**/outputs/
+**/runs/
+**/reports/
+**/temp/
+**/tmp/
+**/plots/
+**/*report*/
+**/*report.*
+**/*temp*/
+**/*copy*/
+**/*Copy*/
+**/*COPY*/
+**/*副本*/
+**/*.bak
+**/*~
+**/*.swp
+**/*.swo
+
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+
+# --------------------------------------------------------------------
+# 第 5 章 大文件、归档、媒体与数值数据
+# --------------------------------------------------------------------
+*.pdf
+*.ps
+*.eps
+*.dvi
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tif
+*.tiff
+*.svg
+*.mp4
+*.avi
+*.mov
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.h5
+*.hdf5
+*.nc
+*.npz
+*.npy
+*.mat
+*.dat
+*.bin
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.gz
+*.bz2
+*.xz
+
+# --------------------------------------------------------------------
+# 第 6 章 Python 与文档工具生成物
+# --------------------------------------------------------------------
+__pycache__/
 build/
 dist/
-__pycache__
-.pytest_cache
-*.pyc
-
-# Python version file (automatically generated)
+*.egg-info/
+.venv/
+venv/
+env/
 python/version.py
 
-# demos
-demo/*/*.b
-demo/*/*.ai
-demo/*/*.ce
-demo/*/*.cer
-demo/*/*.ceM
-demo/*/*.ci
-demo/*/*.cir
-demo/*/*.en
-demo/*/*.rr
-demo/*/*.lev
-demo/*/*.pot
-demo/*/*.tr
-demo/*/*.txt
-demo/*/*.sp
-demo/*/*.rt
-demo/*/*.ham
-
-# latex binaries in docs
+*.aux
 *.bbl
 *.blg
 *.fdb_latexmk
@@ -76,6 +192,62 @@ demo/*/*.ham
 *-converted-to.pdf
 doc/*.log
 doc/*/*.log
-
-# manual (it should be pushed in release-pdf branch by circle-ci)
 doc/manual.pdf
+
+# --------------------------------------------------------------------
+# 第 7 章 编辑器、系统与本地敏感文件
+# --------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+._*
+*.orig
+*.rej
+
+.env
+.env.*
+!.env.example
+*.pem
+id_rsa*
+*.token
+credentials.enc
+.secret_key
+
+# --------------------------------------------------------------------
+# 第 8 章 例外：demo/ 与场景体系必须入库的源码/产物
+# --------------------------------------------------------------------
+# demo 参考基准与产物允许入库（放在所有忽略规则之后）。
+!demo/**/ref/**
+!demo/**/*.b
+!demo/**/*.ai
+!demo/**/*.ce
+!demo/**/*.cer
+!demo/**/*.ceM
+!demo/**/*.ci
+!demo/**/*.cir
+!demo/**/*.en
+!demo/**/*.rr
+!demo/**/*.lev
+!demo/**/*.pot
+!demo/**/*.tr
+!demo/**/*.txt
+!demo/**/*.sp
+!demo/**/*.rt
+!demo/**/*.ham
+!demo/**/*.d
+!demo/**/*.d[0-9]*
+!demo/**/*.png
+!demo/**/*.jpg
+!demo/**/*.pdf
+
+# 场景体系的清单、锚点与 README 属于源码，不属于运行产物。
+!scenarios/_scene_anchors.json
+!scenarios/**/scene.json
+!scenarios/**/scene_manifest.json
+!scenarios/fac_demo/outputs/
+!scenarios/fac_demo/outputs/**
+!scenarios/fac_demo/plots/
+!scenarios/fac_demo/plots/**

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# setup.py 仍负责生成 PFAC 常量与 C 扩展；此处仅提供现代工具链配置，
+# 不在 pyproject.toml 中重复声明 name/version，避免与 setup.py 冲突。
+[tool.setuptools]
+include-package-data = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["scripts", "scenarios"]
+python_files = ["test_*.py"]
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.git
+  | build
+  | dist
+  | faclib
+  | lapack
+  | blas
+  | coul
+  | minpack
+  | modqed
+  | mpfun
+  | ode
+  | quadpack
+  | toms
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    "build",
+    "dist",
+    "faclib",
+    "lapack",
+    "blas",
+    "coul",
+    "minpack",
+    "modqed",
+    "mpfun",
+    "ode",
+    "quadpack",
+    "toms",
+]

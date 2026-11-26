@@ -1,0 +1,7 @@
+{
+  "name": "diagnostics",
+  "archetype": "low-level diagnostics",
+  "description": "Hamiltonian, Maxwell rate and simple CRM diagnostics.",
+  "entry": "run.py",
+  "expected_outputs": ["*.en", "*.cir", "*.cer", "*.sp"]
+}
