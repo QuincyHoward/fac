@@ -1,0 +1,19 @@
+{
+  "name": "FeL_opacity",
+  "archetype": "opacity spectrum",
+  "description": "Opacity spectrum example reusing FeL_single_node artifacts, with local post-processing and optional HPC dense-PI path.",
+  "entry": "run.py",
+  "artifacts": "../artifacts/FeL_single_node_c24m16",
+  "expected_outputs": [
+    "outputs/tables/opacity_t00.csv",
+    "outputs/tables/opacity_t01.csv",
+    "outputs/tables/opacity_t02.csv",
+    "outputs/tables/opacity_t03.csv",
+    "outputs/tables/opacity_t04.csv",
+    "outputs/tables/opacity_t05.csv",
+    "outputs/tables/opacity_t06.csv",
+    "outputs/figures/*.png",
+    "outputs/summary.json"
+  ],
+  "references": "../refs/mds/reading_notes.md"
+}

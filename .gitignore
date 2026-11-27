@@ -14,7 +14,10 @@
 # 第 0 章 
 # --------------------------------------------------------------------
 *.png
-
+*.html
+**/plots/
+*.ipynb
+*.ipynb_checkpoints/
 
 
 
@@ -251,3 +254,10 @@ credentials.enc
 !scenarios/fac_demo/outputs/**
 !scenarios/fac_demo/plots/
 !scenarios/fac_demo/plots/**
+
+# FeL 子场景：完整 HPC 产物本地保留但不入库；图像、报告和小型汇总入库。
+scenarios/fac_demo/cases/FeL_single_node/artifacts/**
+!scenarios/fac_demo/cases/FeL_single_node/artifacts/README.md
+!scenarios/fac_demo/cases/FeL_single_node/artifacts/FeL_single_node_c24m16/plots_inputs/abund.csv
+!scenarios/fac_demo/cases/FeL_single_node/figures/
+!scenarios/fac_demo/cases/FeL_single_node/figures/**

@@ -10,6 +10,8 @@
     {"name": "polarization", "path": "cases/polarization", "archetype": "polarization"},
     {"name": "rmatrix", "path": "cases/rmatrix", "archetype": "R-matrix"},
     {"name": "diagnostics", "path": "cases/diagnostics", "archetype": "low-level diagnostics"},
-    {"name": "FeL_single_node", "path": "cases/FeL_single_node", "archetype": "large multi-ion spectroscopy"}
+    {"name": "FeL_single_node", "path": "cases/FeL_single_node", "archetype": "large multi-ion spectroscopy"},
+    {"name": "FeL_opacity", "path": "cases/FeL_single_node/opacity", "archetype": "opacity spectrum"},
+    {"name": "FeL_opacity_full", "path": "cases/FeL_opacity_full", "archetype": "opacity spectrum full physics"}
   ]
 }

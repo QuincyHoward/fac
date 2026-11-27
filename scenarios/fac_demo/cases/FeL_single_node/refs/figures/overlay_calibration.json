@@ -1,0 +1,16 @@
+{
+  "bailey2015_fig2": {
+    "description": "Bottom panel of Bailey 2015 Figure 2 (Te=1.91e6 K, ne=7.1e21 cm^-3).",
+    "x_pixels": [390, 1105],
+    "x_values": [8.0, 12.0],
+    "x_quantity": "wavelength_angstrom",
+    "y_pixels": [930, 780],
+    "y_values": [0.0, 1.0],
+    "y_quantity": "normalized_opacity",
+    "fac_file": "opacity/outputs/tables/opacity_t00.csv",
+    "fac_x_column": "wavelength_a",
+    "fac_y_column": "kappa_cm2_per_Fe",
+    "normalize_fac": true,
+    "caveat": "FAC curve is normalized to the panel range; absolute cm^2/g comparison is not valid because the FAC example is optical-thin CRM without mass density or full ionization balance."
+  }
+}

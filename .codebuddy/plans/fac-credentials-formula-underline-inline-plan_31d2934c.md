@@ -52,107 +52,77 @@ todos:
 ---
 
 ## 用户要求
-在 `scenarios/fac_demo/cases/FeL_single_node/` 中建立完整、自包含的 FeL 后处理体系：选择一个已完成的 HPC FeL 作业，回传其全部产物到本地子场景目录，编写 Python3 绘图脚本，生成全套 FeL 图像，并编写 `FeL仿真报告.html`。
-
-## 产品概述
-形成以 FeL 子场景为中心的“数据、脚本、图像、报告”一体目录。报告展示 FeL 光谱、电离平衡/丰度、速率系数、跃迁速率，以及核数/MPI 参数矩阵耗时对比；所有相关文件均位于该子场景目录内。
+- 修正 FeL 谱图中 `T index 00..06` 的物理含义：从对应计算文件中读取真实温度，并在图像图例中标注 Kelvin 温度。
+- 修正速率类图像口径：当前“CE/RR/AI/CI 随能级编号”和“辐射跃迁速率随能级编号”是内部诊断图，不是文献常用的物理解释图；改为以波长为横轴，聚焦 10–18 Å 范围。
+- 回答并落实透过率谱问题：当前结果只计算 Fe 发射谱；透过率谱需要额外光离截面、离子丰度、柱密度和背景连续谱。用户确认暂不计算，只在报告中说明所需数据和公式。
+- 保持科研绘图风格：英文标注、Times New Roman、字号大于 18pt。
+- 所有相关脚本、数据、图像、报告和说明仍集中在 `scenarios/fac_demo/cases/FeL_single_node/` 子场景目录内。
 
 ## 核心功能
-- 从推荐作业 `(24 核, 16 MPI)`、JobID `4974613` 回传完整 FeL 产物。
-- 在子场景目录中新增 Python3 绘图脚本，不使用旧 Python2 的 `cPickle/Numeric/biggles` 方案。
-- 绘制全套 FeL 图：谱线光谱、多温度谱、电离平衡/丰度、速率系数、跃迁速率、矩阵耗时对比。
-- 生成自包含静态 HTML 报告 `FeL仿真报告.html`，使用相对路径引用图片。
-- 更新子场景 README、场景元数据和变更记录，确保目录可复现、可审计。
-
+- 从 HPC 的 PFAC 环境导出与 FeL 谱图文件对应的真实温度网格。
+- 重绘谱图，以真实温度替换文件序号标签。
+- 建立 `.rt` 速率表能级到 `.sp` 谱表绝对能量/波长的映射，重绘速率与跃迁速率图。
+- 更新 `FeL仿真报告.html`，修正图注、方法说明和透过率谱限制说明。
+- 完成脚本、图像引用、文档门禁和格式校验。
 
 ## 技术栈选择
-- 回传层：复用 `scenarios/run/remote/session.py` 与 `scripts/credentials`；避免硬编码用户名，不打印敏感信息。
-- 数据读取：Python3 标准库 `pathlib`、`json`、`pickle`、`csv`，配合 `numpy` 处理表格与曲线。
-- 绘图：Python3 + `matplotlib`，输出 PNG/PDF 到子场景 `figures/`。
-- 报告：单文件静态 HTML + 内嵌 CSS，图片使用相对路径。
-- 文档门禁：复用 `scripts/04_audit/audit_readmes.py`、`audit_formula_underlines.py` 与场景审计。
+- 绘图：本地 Python 3 + matplotlib，沿用当前 `plots/plot_style.py` 的科研风格配置。
+- 数据读取：纯 Python 解析 FAC 文本表 `.sp`、`.rt`，避免本地依赖 PFAC。
+- 真实温度导出：通过现有 `RemoteSession` 连接 HPC，在已构建 PFAC 的 Python 3.8.6 环境中调用 `get_tgrid(26, 8)`，导出 CSV 后回传。
+- 远程路径：继续从凭证与作业清单解析，不硬编码用户名。
+- 报告：更新自包含 HTML `FeL仿真报告.html`，图片使用相对路径。
 
-## 实现思路
-采用“先回传完整产物，再本地解析绘图，最后生成 HTML 报告”的链路。回传阶段优先在 HPC 端打包 `work/run` 为单个归档，再经 SFTP 下载并解包到本地子场景目录，避免逐文件传输大量小文件造成高延迟。绘图脚本不调用 FAC 运行时，直接读取 ASCII 表、`.plt`、`.sav`、`.dat` 与矩阵 JSON。
+## 实现策略
+- 不重跑 FeL 主作业；只复用 Job 4974613 已回传的完整产物和 HPC 上对应构建环境。
+- `.sp` 文件单个体积大且行数可达百万级，绘图解析改为流式读取与按需缓存：
+  - 谱图阶段按文件边读边累加波长直方图，避免一次性构造大量字典。
+  - 速率图阶段只为所需 `.sp` 文件构建一次能级到波长映射。
+- `.sp` 块元数据中的 `IBLK` 是关键字段：行内 `block/level` 需转换为 `(block, IBLK + level)`，再与 `.rt` 中的 `(block, level)` 匹配。
+- 无法映射或速率非正的条目跳过并计数；若跳过比例过高则报错，避免生成误导性图像。
+- 速率图横轴改为 10–18 Å 波长；正文说明该图是“按谱线波长组织的速率分布”，比内部能级编号图更接近文献中的谱线能量解释方式。
 
-关键决策：
-- 选用 JobID `4974613`，因为矩阵结果确认 `(24,16)` 为推荐组合，且产物一致性通过。
-- 所有脚本、回传产物、图片和报告都放入 `scenarios/fac_demo/cases/FeL_single_node/`，不再向 `scenarios/fac_demo/outputs/` 生成第二套资料。
-- 原始 HPC 产物体积大，默认不纳入 Git 跟踪；仅对报告所需图片增加窄范围例外，保证报告可展示。
-- 旧 FeL 绘图脚本使用 Python2、biggles 和 Numeric，不能直接复用；新脚本只参考其物理含义与文件读取逻辑。
-- `.sav` 文件使用 `pickle.load(..., encoding="latin1")` 兼容旧格式；缺失输入必须明确报错并列出缺失文件，不猜测数据。
+## 实施注意事项
+- `abund.csv` 当前来自 `get_tgrid(26, 6)`，不能作为 FeL 谱图温度；必须新导出 `get_tgrid(26, 8)`。
+- `temperatures.csv` 字段建议为 `t_index,T_K,log10T`，与 `t00..t06` 文件名一一对应。
+- `read_rt()` 需只读取 `NB/TR/CE/RR/AI/CI` 数据行，避免把 header 数值误判为数据。
+- 图像文件可继续沿用现有文件名，减少 HTML 断链风险；必要时在文件名中体现 wavelength，但需同步更新 HTML。
+- 透过率谱说明中给出 `tau(lambda) = sum_i N_i sigma_i(lambda)` 与 `T(lambda) = exp(-tau(lambda))`，强调缺少光离截面与柱密度假设，因此本轮不计算。
 
-## 性能与可靠性
-- 回传前统计 HPC `work/run` 大小与本地可用空间；大文件打包传输，避免逐个 SFTP 往返。
-- 生成 manifest：记录相对路径、文件大小、修改时间、关键文件数量；回传后校验。
-- 绘图脚本对大表采用流式读取或按列读取，避免一次性加载不必要数据。
-- 矩阵耗时图读取已回传的小 JSON，不重新提交或等待 HPC 作业。
-- HTML 生成前检查所有图片路径存在；缺失图片时报告生成失败。
+## 架构与目录结构
+修改范围集中在 FeL 子场景：
 
-## 架构设计
-```mermaid
-flowchart LR
-    A["HPC Job 4974613<br/>work/run 完整产物"] --> B["fetch_fel_artifacts.py<br/>打包与 SFTP 回传"]
-    B --> C["FeL_single_node/artifacts/<br/>本地原始数据"]
-    C --> D["plot_spec.py"]
-    C --> E["plot_abund.py"]
-    C --> F["plot_rates.py"]
-    C --> G["plot_trates.py"]
-    H["matrix_summary.json"] --> I["plot_matrix.py"]
-    D --> J["figures/"]
-    E --> J
-    F --> J
-    G --> J
-    I --> J
-    J --> K["FeL仿真报告.html"]
-```
-
-## 目录结构
 ```text
 scenarios/fac_demo/cases/FeL_single_node/
-├── README.md                         # [MODIFY] 补充回传、绘图、报告复现命令与文件索引
-├── scene.json                        # [MODIFY] 增加 plots/report/artifacts 元数据
-├── matrix.json                       # [KEEP] 参数矩阵配置保持不变
-├── hpc_jobs/                         # [KEEP] 已有作业清单与日志
-├── artifacts/
-│   ├── README.md                     # [NEW] 说明回传作业、目录结构与数据用途
-│   └── FeL_single_node_c24m16/       # [NEW] Job 4974613 全量产物本地副本
 ├── plots/
-│   ├── README.md                     # [NEW] 绘图脚本使用说明
-│   ├── common.py                     # [NEW] 路径解析、文件发现、安全 pickle、样式配置
-│   ├── fetch_fel_artifacts.py        # [NEW] 从 HPC 回传 Job 4974613 完整产物
-│   ├── plot_spec.py                  # [NEW] 绘制光谱与多温度谱图
-│   ├── plot_abund.py                 # [NEW] 绘制电离平衡与丰度比图
-│   ├── plot_rates.py                 # [NEW] 绘制 CE/CI/RR/AI 等速率系数图
-│   ├── plot_trates.py                # [NEW] 绘制跃迁速率相关图
-│   ├── plot_matrix.py                # [NEW] 绘制核数/MPI 矩阵耗时对比图
-│   └── plot_all.py                   # [NEW] 统一调用绘图脚本并生成图片清单
+│   ├── fac_tables.py                 # [MODIFY] 保留 IBLK 元数据；提供流式解析与能级到波长映射；修正 .rt 行识别。
+│   ├── export_fel_temps.py           # [NEW] HPC 端调用 get_tgrid(26,8)，输出 temperatures.csv。
+│   ├── fetch_fel_temps.py            # [NEW] 上传并运行导出脚本，回传 temperatures.csv 到子场景 artifacts。
+│   ├── plot_spec.py                  # [MODIFY] 读取 temperatures.csv，图例改成真实 Kelvin 温度。
+│   ├── plot_rates.py                 # [MODIFY] CE/RR/AI/CI 改为波长轴 10–18 Å。
+│   ├── plot_trates.py                # [MODIFY] TR 改为波长轴 10–18 Å。
+│   ├── plot_all.py                   # [MODIFY] 检查温度 CSV，统一重绘全部图像。
+│   └── README.md                     # [MODIFY] 补充温度导出、波长速率图与复现命令。
+├── artifacts/FeL_single_node_c24m16/plots_inputs/
+│   └── temperatures.csv              # [NEW/RUNTIME] 从 HPC 导出的真实温度网格。
 ├── figures/
-│   ├── README.md                     # [NEW] 图片索引与命名规则
-│   └── *.png / *.pdf                 # [NEW] 自动生成的 FeL 全套图像
-└── FeL仿真报告.html                   # [NEW] 自包含静态报告，相对引用 figures 图片
+│   ├── FeL_spectrum_multitemp.png    # [UPDATE/RUNTIME] 图例使用真实温度。
+│   ├── FeL_spectrum_nion.png         # [UPDATE/RUNTIME] 保持英文与科研风格。
+│   ├── FeL_rates_vs_level.png        # [UPDATE/RUNTIME] 或更名后重绘为波长轴速率图。
+│   ├── FeL_transition_rates.png      # [UPDATE/RUNTIME] 或更名后重绘为波长轴跃迁速率图。
+│   └── 其余图像                      # [UPDATE/RUNTIME] 必要时同步重绘。
+├── FeL仿真报告.html                  # [MODIFY] 修正图注、方法说明与透过率谱限制说明。
+├── README.md                         # [MODIFY] 更新绘图说明与复现步骤。
+└── PhySimX_fac_CHANGELOG.md          # [MODIFY] 记录物理口径修正。
 ```
 
-## 关键执行细节
-- `fetch_fel_artifacts.py` 默认从 `matrix_jobs.json` 解析 `(24,16)` 作业，并允许 `--job` 覆盖。
-- 绘图脚本统一提供 `--artifacts-dir`、`--figures-dir`、`--help`。
-- `plot_all.py` 汇总各脚本执行状态，输出 `figures/figure_manifest.json`。
-- HTML 报告包含：数据来源、参数组合、矩阵结论、图像分区、物理合理性、产物统计、复现命令、已知限制。
-- 更新 `.gitignore`：继续忽略原始大产物和日志；仅允许该子场景 `figures/*.png` 作为报告图片入库。
+## 验证标准
+- `temperatures.csv` 包含 7 个温度点，能与 `t00..t06` 一一对应。
+- 谱图图例不再出现 `T index 00` 等裸编号。
+- 速率图与跃迁速率图横轴为波长 Å，范围聚焦 10–18 Å。
+- HTML 中所有图片引用存在，图注与图像内容一致。
+- README、公式、场景审计、MCP 自检、skill 校验和 Python 脚本语法检查全部通过。
 
-
-## FeL 报告视觉方案
-采用现代科研报告风格：深蓝头部区域、浅色内容背景、卡片化图组、清晰表格与响应式网格。报告不依赖外部 CDN，CSS 内嵌，离线打开即可查看。
-
-页面结构：
-1. 顶部标题区：FeL 仿真报告、作业参数、推荐组合标识。
-2. 摘要卡片区：JobID、核数/MPI、耗时、产物计数。
-3. 图像分区：光谱、丰度、速率、跃迁速率、矩阵分析，每张图含图题与简要说明。
-4. 结果表：矩阵组合、耗时、状态、产物一致性。
-5. 复现与限制区：命令清单、数据路径、非致命警告说明。
-
-## Agent Extensions
-### SubAgent
+## SubAgent
 - **code-explorer**
-  - Purpose: 复核 FeL 原始 Python2 绘图脚本、当前子场景目录、矩阵结果文件与回传作业产物字段。
-  - Expected outcome: 明确每类图表的输入文件、旧脚本物理含义、README 门禁影响和最小改动落点。
+  - Purpose: 复核 `.sp` 块元数据、`IBLK` 映射规则和 `.rt` 数据行识别方式，确认速率表到波长映射的精确字段。
+  - Expected outcome: 给出可实现的映射规则、边界情况和具体文件证据，避免错误地把 header 数值当作速率数据。

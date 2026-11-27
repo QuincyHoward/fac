@@ -1,0 +1,7 @@
+{
+  "name": "FeL_opacity_full",
+  "archetype": "opacity spectrum full physics",
+  "description": "Top-level HPC wrapper for the nested opacity_full scene; forwards phases to cases/FeL_single_node/opacity_full/run.py.",
+  "entry": "run.py",
+  "expected_outputs": ["summary.json", "opacity_full_outputs/tables/*.csv", "opacity_full_outputs/figures/*.png"]
+}

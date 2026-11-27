@@ -32,6 +32,30 @@ python -m scenarios.run.hpc download --remote <archive_dir> --local <local_dir>
 - `summary.json.ok=true`
 - 回传摘要：`scenarios/fac_demo/outputs/FeL_single_node_HPC/`
 
+## 绘图与报告
+
+- [`plots/`](plots/)：Python3 绘图脚本与 HPC 产物/温度回传脚本；温度由 `get_tgrid(26,8)` 导出。
+- [`figures/`](figures/)：全套图像，英文标注、Times New Roman、字号 >18pt。
+- [`artifacts/`](artifacts/)：Job 4974613 的全量产物，本地保留。
+- [`hpc_jobs/`](hpc_jobs/)：矩阵作业清单与汇总。
+- - [`FeL仿真报告.html`](FeL仿真报告.html)：自包含 HTML 报告。
+- [`fac与文献对比图分析报告.html`](fac与文献对比图分析报告.html)：文献截取图与 FAC 不透明度/PI 图的并列与叠加对照报告。
+
+## 不透明度谱子场景
+
+[`opacity/`](opacity/README.md) 直接复用本目录的 `artifacts/FeL_single_node_c24m16/` 产物，合成 10–18 Å 不透明度谱与透过率；基线本地后处理，不做 `make check`。文献 PDF 已统一重命名并转换为 Markdown，通读笔记见 [`refs/mds/reading_notes.md`](refs/mds/reading_notes.md)。
+
+[`opacity_full/`](opacity_full/README.md) 为 full-physics 升级场景：打开 bound-bound、Voigt 线型、密集 PI 与示例级 AI/DR 共振，重计算阶段通过顶层 [`FeL_opacity_full`](../FeL_opacity_full/) HPC wrapper 提交。
+
+复现：
+
+```bash
+python plots/fetch_fel_artifacts.py --job 4974613 --skip-existing
+python plots/fetch_fel_abund.py --remote-run <remote_run> --remote-build <remote_build>
+python plots/fetch_fel_temps.py --remote-run <remote_run> --remote-build <remote_build>
+python plots/plot_all.py
+```
+
 ## 参数矩阵（2026-11-26）
 
 四组独立作业已并行提交并全部完成；基线 `(40,40)` 复用未重跑。详细结果见 [`../../outputs/FeL_single_node_HPC/matrix_summary.md`](../../outputs/FeL_single_node_HPC/matrix_summary.md)。

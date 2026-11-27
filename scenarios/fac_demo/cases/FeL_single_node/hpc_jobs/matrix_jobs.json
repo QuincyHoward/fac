@@ -1,0 +1,57 @@
+{
+  "scene": "FeL_single_node",
+  "walltime": "03:00:00",
+  "baseline": {
+    "cores": 40,
+    "mpi": 40,
+    "job_id": "4973989",
+    "source": "scenarios/fac_demo/outputs/FeL_single_node_HPC/summary.json"
+  },
+  "dry_run": false,
+  "jobs": [
+    {
+      "cores": 16,
+      "mpi": 8,
+      "run_id": "FeL_single_node_c16m8",
+      "job_name": "fac_FeL_single_node_16c_8m",
+      "job_id": "4974612",
+      "job_script": "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\fac_FeL_single_node_16c_8m_FeL_single_node_c16m8.sbatch",
+      "remote_script": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c16m8/submit.sbatch",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c16m8/archive",
+      "walltime": "03:00:00"
+    },
+    {
+      "cores": 24,
+      "mpi": 16,
+      "run_id": "FeL_single_node_c24m16",
+      "job_name": "fac_FeL_single_node_24c_16m",
+      "job_id": "4974613",
+      "job_script": "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\fac_FeL_single_node_24c_16m_FeL_single_node_c24m16.sbatch",
+      "remote_script": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c24m16/submit.sbatch",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c24m16/archive",
+      "walltime": "03:00:00"
+    },
+    {
+      "cores": 40,
+      "mpi": 24,
+      "run_id": "FeL_single_node_c40m24",
+      "job_name": "fac_FeL_single_node_40c_24m",
+      "job_id": "4974614",
+      "job_script": "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\fac_FeL_single_node_40c_24m_FeL_single_node_c40m24.sbatch",
+      "remote_script": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/submit.sbatch",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/archive",
+      "walltime": "03:00:00"
+    },
+    {
+      "cores": 40,
+      "mpi": 32,
+      "run_id": "FeL_single_node_c40m32",
+      "job_name": "fac_FeL_single_node_40c_32m",
+      "job_id": "4974615",
+      "job_script": "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\fac_FeL_single_node_40c_32m_FeL_single_node_c40m32.sbatch",
+      "remote_script": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m32/submit.sbatch",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m32/archive",
+      "walltime": "03:00:00"
+    }
+  ]
+}

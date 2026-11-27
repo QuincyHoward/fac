@@ -1,0 +1,207 @@
+{
+  "scene": "FeL_single_node",
+  "baseline": {
+    "cores": 40,
+    "mpi": 40,
+    "job_id": "4973989",
+    "source": "scenarios/fac_demo/outputs/FeL_single_node_HPC/summary.json",
+    "slurm": {
+      "elapsed": "02:45:15",
+      "total_cpu": "00:00:00",
+      "ave_cpu": "",
+      "max_rss": "",
+      "ave_rss": "",
+      "exit_code": "0:0",
+      "node_list": "ia1006",
+      "state": "COMPLETED"
+    },
+    "state": "COMPLETED"
+  },
+  "rows": [
+    {
+      "cores": 16,
+      "mpi": 8,
+      "job_id": "4974612",
+      "job_name": "fac_FeL_single_node_16c_8m",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c16m8/archive",
+      "state": "COMPLETED",
+      "slurm": {
+        "elapsed": "02:28:47",
+        "total_cpu": "00:00:00",
+        "ave_cpu": "",
+        "max_rss": "",
+        "ave_rss": "",
+        "exit_code": "0:0",
+        "node_list": "ia0114",
+        "state": "COMPLETED"
+      },
+      "fac": {
+        "fe_exit": 0,
+        "spec_exit": 0,
+        "data_files": 36,
+        "data_en": 6,
+        "data_tr": 6,
+        "data_ce": 6,
+        "data_ci": 6,
+        "data_ai": 6,
+        "data_rr": 6,
+        "fe08_files": 210,
+        "fe08_rt": 42,
+        "fe08_sp": 42,
+        "slurm_cores": 16,
+        "fac_mpi_threads": 8,
+        "fe_wall_seconds": 7913.615,
+        "spec_wall_seconds": 946.591,
+        "total_wall_seconds": 8860.207,
+        "ok": true
+      },
+      "saved": [
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c16m8\\configure.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c16m8\\pfac_build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c16m8\\run.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c16m8\\build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c16m8\\summary.json"
+      ],
+      "sacct_error": ""
+    },
+    {
+      "cores": 24,
+      "mpi": 16,
+      "job_id": "4974613",
+      "job_name": "fac_FeL_single_node_24c_16m",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c24m16/archive",
+      "state": "COMPLETED",
+      "slurm": {
+        "elapsed": "02:16:57",
+        "total_cpu": "00:00:00",
+        "ave_cpu": "",
+        "max_rss": "",
+        "ave_rss": "",
+        "exit_code": "0:0",
+        "node_list": "ia0305",
+        "state": "COMPLETED"
+      },
+      "fac": {
+        "fe_exit": 0,
+        "spec_exit": 0,
+        "data_files": 36,
+        "data_en": 6,
+        "data_tr": 6,
+        "data_ce": 6,
+        "data_ci": 6,
+        "data_ai": 6,
+        "data_rr": 6,
+        "fe08_files": 210,
+        "fe08_rt": 42,
+        "fe08_sp": 42,
+        "slurm_cores": 24,
+        "fac_mpi_threads": 16,
+        "fe_wall_seconds": 7213.612,
+        "spec_wall_seconds": 937.02,
+        "total_wall_seconds": 8150.632,
+        "ok": true
+      },
+      "saved": [
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c24m16\\configure.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c24m16\\pfac_build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c24m16\\run.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c24m16\\build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c24m16\\summary.json"
+      ],
+      "sacct_error": ""
+    },
+    {
+      "cores": 40,
+      "mpi": 24,
+      "job_id": "4974614",
+      "job_name": "fac_FeL_single_node_40c_24m",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m24/archive",
+      "state": "COMPLETED",
+      "slurm": {
+        "elapsed": "02:26:59",
+        "total_cpu": "00:00:00",
+        "ave_cpu": "",
+        "max_rss": "",
+        "ave_rss": "",
+        "exit_code": "0:0",
+        "node_list": "ia0708",
+        "state": "COMPLETED"
+      },
+      "fac": {
+        "fe_exit": 0,
+        "spec_exit": 0,
+        "data_files": 36,
+        "data_en": 6,
+        "data_tr": 6,
+        "data_ce": 6,
+        "data_ci": 6,
+        "data_ai": 6,
+        "data_rr": 6,
+        "fe08_files": 210,
+        "fe08_rt": 42,
+        "fe08_sp": 42,
+        "slurm_cores": 40,
+        "fac_mpi_threads": 24,
+        "fe_wall_seconds": 7817.733,
+        "spec_wall_seconds": 934.745,
+        "total_wall_seconds": 8752.479,
+        "ok": true
+      },
+      "saved": [
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m24\\configure.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m24\\pfac_build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m24\\run.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m24\\build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m24\\summary.json"
+      ],
+      "sacct_error": ""
+    },
+    {
+      "cores": 40,
+      "mpi": 32,
+      "job_id": "4974615",
+      "job_name": "fac_FeL_single_node_40c_32m",
+      "remote_dir": "/publicfs01/fs1-e/home/scfa2696/QC/fac_jobs/FeL_single_node_c40m32/archive",
+      "state": "COMPLETED",
+      "slurm": {
+        "elapsed": "02:32:48",
+        "total_cpu": "00:00:00",
+        "ave_cpu": "",
+        "max_rss": "",
+        "ave_rss": "",
+        "exit_code": "0:0",
+        "node_list": "ib0111",
+        "state": "COMPLETED"
+      },
+      "fac": {
+        "fe_exit": 0,
+        "spec_exit": 0,
+        "data_files": 36,
+        "data_en": 6,
+        "data_tr": 6,
+        "data_ce": 6,
+        "data_ci": 6,
+        "data_ai": 6,
+        "data_rr": 6,
+        "fe08_files": 210,
+        "fe08_rt": 42,
+        "fe08_sp": 42,
+        "slurm_cores": 40,
+        "fac_mpi_threads": 32,
+        "fe_wall_seconds": 8160.026,
+        "spec_wall_seconds": 941.713,
+        "total_wall_seconds": 9101.739,
+        "ok": true
+      },
+      "saved": [
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m32\\configure.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m32\\pfac_build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m32\\run.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m32\\build.log",
+        "E:\\PhySimX\\PhySimX\\diagnosis\\SpecX_test\\SpecX-diag\\specx\\_solvers\\fac\\src\\fac\\scenarios\\fac_demo\\outputs\\FeL_single_node_HPC\\c40m32\\summary.json"
+      ],
+      "sacct_error": ""
+    }
+  ],
+  "summary_markdown": "# FeL 核数 / MPI 数矩阵结果\n\n基线 `(40,40)` 直接复用，不重跑。计时口径：\n- SLURM：`sacct` Elapsed / TotalCPU / AveCPU / MaxRSS / AveRSS / ExitCode / NodeList / State\n- FAC：`summary.json` 中 fe/spec/total wall seconds\n- 产物一致性：`data_files=36`、`fe08_files=210`、`fe_exit=0`、`spec_exit=0`\n\n| 核数 | MPI | JobID | 状态 | Elapsed | TotalCPU | AveCPU | MaxRSS | fe wall(s) | spec wall(s) | total wall(s) | 产物 OK |\n|---:|---:|---|---|---|---|---|---|---:|---:|---:|---|\n| 40 | 40 | 4973989 | COMPLETED | 02:45:15 | 00:00:00 |  |  |  |  |  | True（复用） |\n| 16 | 8 | 4974612 | COMPLETED | 02:28:47 | 00:00:00 |  |  | 7913.615 | 946.591 | 8860.207 | True |\n| 24 | 16 | 4974613 | COMPLETED | 02:16:57 | 00:00:00 |  |  | 7213.612 | 937.02 | 8150.632 | True |\n| 40 | 24 | 4974614 | COMPLETED | 02:26:59 | 00:00:00 |  |  | 7817.733 | 934.745 | 8752.479 | True |\n| 40 | 32 | 4974615 | COMPLETED | 02:32:48 | 00:00:00 |  |  | 8160.026 | 941.713 | 9101.739 | True |\n\n基线摘要：`scenarios/fac_demo/outputs/FeL_single_node_HPC/summary.json`\n基线 JobID：`4973989`\n\n## 推荐组合\n\n按 FAC 总墙钟时间最短：核数 `24`，MPI 数 `16`，JobID `4974613`。\n\n"
+}

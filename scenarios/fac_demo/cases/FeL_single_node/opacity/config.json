@@ -1,0 +1,53 @@
+{
+  "artifacts_dir": "../artifacts/FeL_single_node_c24m16",
+  "output_dir": "outputs",
+  "temperature_indices": ["00", "01", "02", "03", "04", "05", "06"],
+  "ions": [
+    {"nele": 8, "prefix": "Fe08", "charge": 19, "fraction_column": "Fe19_fraction"},
+    {"nele": 9, "prefix": "Fe09", "charge": 18, "fraction_column": "Fe18_fraction"},
+    {"nele": 10, "prefix": "Fe10", "charge": 17, "fraction_column": "Fe17_fraction"}
+  ],
+  "energy_grid": {
+    "mode": "wavelength",
+    "min": 10.0,
+    "max": 18.0,
+    "step": 0.002,
+    "unit": "Angstrom",
+    "note": "10-18 Angstrom corresponds to about 688.91-1239.84 eV; wavelength step 0.002 A gives about 4001 points."
+  },
+  "pi": {
+    "source": "ascii_rr",
+    "interpolation": "loglog",
+    "table_suffix": "a.rr",
+    "min_cross_section": 1e-24,
+    "skip_nonpositive": true
+  },
+  "population": {
+    "sp_pattern": "Fe08a_t{t_index}d0i3.sp",
+    "block_type": "0000000",
+    "min_population": 1e-6,
+    "coverage": 0.999,
+    "top_n": 50
+  },
+  "bound_bound": {
+    "enabled": false,
+    "table_suffix": "a.tr",
+    "broadening": "gaussian",
+    "sigma_ev": 0.01,
+    "window_sigmas": 5,
+    "min_gf": 1e-6
+  },
+  "normalization": {
+    "n_h_cm3": 1.0e10,
+    "n_fe_per_h": 1.0e-6,
+    "path_length_cm": 1.0,
+    "outputs": ["kappa_cm2_per_Fe", "kappa_inv_cm", "transmission"]
+  },
+  "validation": {
+    "rtol_energy": 1e-6,
+    "rtol_population_sum": 1e-3,
+    "rtol_roundtrip": 1e-6,
+    "require_monotonic_energy": true,
+    "require_nonnegative_kappa": true
+  }
+}

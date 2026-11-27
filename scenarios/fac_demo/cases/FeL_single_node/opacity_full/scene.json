@@ -1,0 +1,15 @@
+{
+  "name": "FeL_opacity_full_impl",
+  "archetype": "opacity spectrum with bound-bound, dense PI and resonances",
+  "description": "Full-physics FeL opacity scene reusing FeL artifacts, with local smoke path and HPC stages for full CRM populations, dense PI and AI/DR contributions.",
+  "entry": "run.py",
+  "expected_outputs": [
+    "outputs/tables/opacity_full_t*.csv",
+    "outputs/dense_pi/*.csv",
+    "outputs/resonances/*.csv",
+    "outputs/figures/*.png",
+    "outputs/validation_full.json",
+    "outputs/summary.json"
+  ],
+  "report": "../fac_full与文献对比图分析报告.html"
+}

@@ -1,0 +1,87 @@
+{
+  "artifacts_dir": "../artifacts/FeL_single_node_c24m16",
+  "output_dir": "outputs",
+  "temperature_indices": ["00", "01", "02", "03", "04", "05", "06"],
+  "ions": [
+    {
+      "prefix": "Fe08", "nele": 8, "charge": 19,
+      "fraction_column": "Fe19_fraction",
+      "sp_file": "artifacts/Fe08/Fe08a_t{t_index}d0i3.sp"
+    },
+    {
+      "prefix": "Fe09", "nele": 9, "charge": 18,
+      "fraction_column": "Fe18_fraction",
+      "sp_file": "artifacts/Fe08/Fe08a_t{t_index}d0i3.sp"
+    },
+    {
+      "prefix": "Fe10", "nele": 10, "charge": 17,
+      "fraction_column": "Fe17_fraction",
+      "sp_file": "outputs/crm_pop/Fe10/Fe10a_t{t_index}d0i3.sp"
+    }
+  ],
+  "energy_grid": {
+    "mode": "wavelength",
+    "min": 8.0,
+    "max": 18.0,
+    "step": 0.002,
+    "unit": "Angstrom"
+  },
+  "pi": {
+    "source": "dense_pi_if_available",
+    "fallback": "ascii_rr_loglog",
+    "table_suffix": "a.rr",
+    "binary_rr": "data/{prefix}b.rr",
+    "binary_en": "data/{prefix}b.en",
+    "energy_min_ev": 500.0,
+    "energy_max_ev": 2500.0,
+    "energy_points": 801,
+    "min_cross_section": 1.0e-24,
+    "top_n": 200
+  },
+  "population": {
+    "min_population": 1.0e-9,
+    "coverage": 0.9999,
+    "top_n": 2000,
+    "allow_fallback": true,
+    "fallback_mode": "ground_state"
+  },
+  "bound_bound": {
+    "enabled": true,
+    "source": "tr",
+    "table_suffix": "a.tr",
+    "min_gf": 1.0e-8,
+    "profile": "voigt",
+    "window_sigmas": 8,
+    "min_width_ev": 1.0e-4,
+    "max_width_ev": 5.0,
+    "use_sp_widths": true,
+    "natural_width": true,
+    "doppler": true,
+    "te_column": "T_K",
+    "te_column_unit": "eV"
+  },
+  "resonance": {
+    "enabled": true,
+    "source": "ai_dr_if_available",
+    "fallback": "zero",
+    "ai_table": "data/{prefix}a.ai",
+    "dr_table": "data/{prefix}a.dr",
+    "min_strength": 1.0e-8,
+    "max_resonances": 200000,
+    "width_ev": 1.0,
+    "window_sigmas": 8
+  },
+  "normalization": {
+    "n_h_cm3": 1.0e10,
+    "n_fe_per_h": 1.0e-6,
+    "path_length_cm": 1.0,
+    "outputs": ["kappa_cm2_per_Fe", "kappa_inv_cm", "transmission"]
+  },
+  "validation": {
+    "require_bb_nonzero": true,
+    "require_positive_kappa": true,
+    "require_monotonic_energy": true,
+    "rtol_roundtrip": 1.0e-6,
+    "min_line_count": 1
+  }
+}

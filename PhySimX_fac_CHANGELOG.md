@@ -6,6 +6,17 @@
 
 ### Added
 
+- FeL 子场景新增 `plots/`、`figures/`、`artifacts/`、`hpc_jobs/` 与 `FeL仿真报告.html`，所有子场景相关文件集中在 `scenarios/fac_demo/cases/FeL_single_node/`。
+- 回传 Job 4974613 全部 249 个产物，约 22 GB，并导出丰度 CSV。
+- 新增 Python3 绘图脚本：光谱、丰度、速率、跃迁速率与矩阵耗时对比；科研风格，英文标注，Times New Roman，字号 >18pt。
+- 新增 `export_fel_temps.py` / `fetch_fel_temps.py`：从 HPC 的 `get_tgrid(26,8)` 导出 T00–T06 的真实 Kelvin 温度。
+
+### Changed
+
+- FeL 谱图图例改为真实物理温度（272.5–2164.6 K），不再只写 T index。
+- CE/RR/AI/CI 与跃迁速率图改为 10–18 Å 波长轴；内部能级编号图不再作为物理解释图。
+- 报告明确说明：当前只计算发射谱；透过率谱需要额外光离截面、柱密度和连续谱假设，暂不计算。
+
 - 新增 `skills/fac-hpc-parallel/`，覆盖超算并行执行、USE_MPI 检查、核数/MPI 矩阵、并行提交与资源汇总。
 - 新增 FeL 参数矩阵配置 `scenarios/fac_demo/cases/FeL_single_node/matrix.json`。
 - 新增 `scenarios/run/remote/batch_submit.py` 与 `matrix_report.py`。
